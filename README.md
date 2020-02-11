@@ -1,2 +1,2 @@
-# Solutions to *Fifty Challenging Problems in Probability*
-I will post my solutions to questions from this book in this repository.
+# Math Studies
+I will post various interesting math topics I study here.
