@@ -1,2 +1,2 @@
-# Solutions to *Fifty Challenging Problems in Probability*
-I will post my solutions to questions from this book here.
+# Probability
+I will post my solutions to various probability questions here.
