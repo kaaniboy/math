@@ -10,7 +10,7 @@ permalink: /blog/
         <li>
             <span class="post-date">{{ post.date | date: "%b %d, %Y" }}</span>
             ::
-            <a class="post-link" href="math/{{ post.url }}">{{ post.title }}</a>
+            <a class="post-link" href="/math/{{ post.url }}">{{ post.title }}</a>
         </li>
     {% endfor %}
 </ul>
@@ -22,7 +22,7 @@ permalink: /blog/
         <li>
             <span class="post-date">{{ post.date | date: "%b %d, %Y" }}</span>
             ::
-            <a class="post-link" href="math/{{ post.url }}">{{ post.title }}</a>
+            <a class="post-link" href="/math/{{ post.url }}">{{ post.title }}</a>
         </li>
     {% endfor %}
 </ul>
