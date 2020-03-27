@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\usepackage[symbol]{footmisc}
+
+\newtheorem{theorem}{Theorem}[section]
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\setcounter{secnumdepth}{0}
+
+\date{}
+\author{Kaan Aksoy | March 10, 2020}
+
+\begin{document}
+
+\maketitle
+\section{The Clumsy Chemist}
+\subsection{Problem}
+In a laboratory, each of a handful of thin 9-inch glass rods had one tip marked with a blue dot and the other with a red.  When the laboratory assistant tripped and dropped them onto the concrete floor, many broke into three pieces. For these, what was the average length of the fragment with the blue dot?
+
+\subsection{Solution}
+
+To solve this problem, we will apply the \textit{Principle of Symmetry}: 
+
+\begin{quote}
+When $n$ points are dropped at random on an interval, the 
+lengths of the $n + 1$ line segments have identical distributions.
+\end{quote}
+
+\vspace{0.3cm}
+
+This problem is an application of this principle with $n = 2$. Let  
+$X_1$, $X_2$, and $X_3$ represent the lengths of the $3$ pieces of the 
+broken rod. By the \textit{Principle of Symmetry}, we know these all have 
+the same expected value. Furthermore, we know the expected sum of their 
+lengths is $9$ inches. So, it follows that:
+
+$$E[X_1+X_2+X_3] = 9$$
+$$E[X_1] + E[X_2] + E[X_3]= 9$$
+$$E[X_1] = E[X_2] = E[X_3]= 3$$
+
+Thus, the average length of the piece with the blue dot is $3$ inches.
+
+\subsection{Alternative Solution}
+
+We can approach this problem without the \textit{Principle of Symmetry}. 
+Let \textit{B} represent the length of the piece with the blue dot. For 
+the sake of simplicity, we scale the rod to 1 inch. Then, we have 
+the following:
+
+$$P(B > x) = (1-x)^2$$
+
+The intuition is that, for the blue piece to have a 
+length of more than $x$, the $2$ breaks must be in the 
+remaining $(1-x)$ region of the rod.
+
+Next, we construct the probability density function for $B$ by 
+taking the derivative of the complement of the above function:
+
+$$f(x) = \dfrac{d}{dx}P(B \leq x) = \dfrac{d}{dx} 
+\left[1 - (1-x)^2 \right] = 2-2x$$
+
+Finally, we apply the definition of expected value, 
+$E[X] = \int xf(x)dx$, to get the solution:
+
+$$\int_0^1 x(2-2x)dx = \frac{1}{3}$$
+
+Scaling back to the original length of the rod gives an average 
+length of $3$ inches for the blue piece.
+
+\end{document}

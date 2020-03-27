@@ -1,0 +1,16 @@
+<h1 id="finding-your-birthmate">Finding Your Birthmate</h1>
+<h2 id="problem">Problem</h2>
+<p>You want to find someone whose birthday matches yours. What is the least number of strangers whose birthday you need to ask about to have a <span class="math inline">\(50\)</span>-<span class="math inline">\(50\)</span> chance?</p>
+<h2 id="solution">Solution</h2>
+<p>Let <span class="math inline">\(X\)</span> be a random variable representing the number of people you need to ask before finding someone whose birthday matches yours. Then, applying the geometric distribution, we know <span class="math inline">\(P(X=n)\)</span> is:</p>
+<p><span class="math display">\[P(X=n) = \left(\frac{364}{365}\right)^n
+\left(\frac{1}{365}\right)\]</span></p>
+<p>Extending the above, the probability that <span class="math inline">\(X\)</span> is no more than some value <span class="math inline">\(n\)</span> is simply:</p>
+<p><span class="math display">\[P(X \leq n) = \sum_{i=0}^n \left(\frac{364}{365}\right)^n
+\left(\frac{1}{365}\right)\]</span></p>
+<p>To finish this problem, we assign <span class="math inline">\(P(X \leq n) = \frac{1}{2}\)</span> and solve for <span class="math inline">\(n\)</span>:</p>
+<p><span class="math display">\[\frac{1}{2} = \sum_{i=0}^n \left(\frac{364}{365}\right)^n
+\left(\frac{1}{365}\right) = \frac{\frac{1}{365}\left[1-\left(\frac{364}{365}\right)^n
+\right]} {1-\frac{364}{365}}\]</span></p>
+<p><span class="math display">\[\frac{1}{2} = \left(\frac{364}{365}\right)^n\]</span></p>
+<p>The first line above comes from applying the formula for the sum of a finite geometric series, which is <span class="math inline">\(s_n = \frac{a_1(1-r^n)}{1-r}\)</span>. The final answer is <span class="math inline">\(\log_\frac{364}{365} \frac{1}{2} \approx 253\)</span>.</p>

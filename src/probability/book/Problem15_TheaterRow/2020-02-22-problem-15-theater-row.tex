@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\usepackage[symbol]{footmisc}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{secnumdepth}{0}
+
+\date{}
+\author{Kaan Aksoy | Feb 22, 2020}
+
+\begin{document}
+
+\maketitle
+\section{Theater Row}
+\subsection{Problem}
+Eight eligible bachelors and seven beautiful models happen randomly to have purchased single seats in the same 15-seat row of a theater. On the average, how many pairs of adjacent seats are ticketed for marriageable couples\footnote[1]{According to outdated cultural norms from the time of this problem's publication.}?
+
+\subsection{Solution}
+
+Let $X$ be a random variable denoting the number of pairs that are marriageable. 
+We can rewrite $X$ as $X = X_{1} + X_{2} + \ldots 
++ X_{14}$, where each $X_{i}$ is a random variable 
+representing the number of marriageable couples in 
+the $i^{th}$ pair of adjacent seats. Note that each 
+$X_{i}$ can take on either $0$ or $1$ only.
+
+We can easily calculate $E[X_{i}]$ by considering the 
+two arrangements that result in a marriageable pair, which 
+are \textit{Male-Female} and \textit{Female-Male}:
+
+$$
+E[X_{i}] = \left(\frac{8}{15}\right) 
+\left(\frac{7}{14}\right) + 
+\left(\frac{7}{15}\right)
+\left(\frac{8}{14}\right) = \frac{8}{15}
+$$
+
+Then, applying the \textit{Linearity of Expectation} property, we can 
+calculate $E[X]$ as follows:
+
+\begin{equation*}
+\begin{split}
+E[X] &= E[X_{1} + X_{2} + \ldots + X_{14}] \\
+&= E[X_{1}] + E[X_{2}] + \ldots + E[X_{14}] \\
+&= 14\left(\frac{8}{15}\right)
+\end{split}
+\end{equation*}
+
+Thus, the expected number of marriageable pairs in the row of $15$ 
+seats is $E[X] \approx 7.46$.
+\end{document}

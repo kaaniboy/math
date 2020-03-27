@@ -1,0 +1,56 @@
+<h1 id="craps">Craps</h1>
+<h2 id="problem">Problem</h2>
+<p>The game of craps, played with two die, is one of America’s fastest and most popular games. Calculating the odds associated with it is an instructive exercise.</p>
+<p>The rules are these. Only totals for the two dice count. The player throws the dice and wins at once if the total for the first throw is <span class="math inline">\(7\)</span> or <span class="math inline">\(11\)</span>, loses at once if it is <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span> or <span class="math inline">\(12\)</span>. Any other throw is called his "point". If the first throw is a point, the player throws the dice repeatedly until he either wins by throwing his point again or loses by throwing <span class="math inline">\(7\)</span>. What is the player’s chance to win?</p>
+<h2 id="solution">Solution</h2>
+<p>Let <span class="math inline">\(X\)</span> be a random variable representing the sum of the values on the two die, which has the range <span class="math inline">\(\{2,\ldots,12\}\)</span>. By counting the relevant outcomes and dividing by the total number of outcomes in the sample space (<span class="math inline">\(36\)</span>), we get the following probabilities for <span class="math inline">\(X\)</span>:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(3\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(4\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(5\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(6\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(7\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(8\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(9\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(10\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(11\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(12\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(P(X=x)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1}{36}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1}{18}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1}{12}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1}{9}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{5}{36}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1}{6}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{5}{36}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1}{9}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1}{12}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1}{18}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1}{36}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>In the range of <span class="math inline">\(X\)</span>, the values that do not result in an immediate win or loss are <span class="math inline">\(C = \{4,5,6,8,9,10\}\)</span>. For these cases, we must calculate the probability <span class="math inline">\(D_x\)</span> of drawing the "point" <span class="math inline">\(x\)</span> instead of a <span class="math inline">\(7\)</span> (which can be made in <span class="math inline">\(6\)</span> ways). We can disregard all other values in the sample space of <span class="math inline">\(X\)</span> because they do not result in the game terminating:</p>
+<p><span class="math display">\[D_4 = \frac{3}{3+6} = \frac{1}{3}\]</span> <span class="math display">\[D_5 = \frac{4}{4+6} = \frac{2}{5}\]</span> <span class="math display">\[D_6 = \frac{5}{5+6} = \frac{5}{11}\]</span> <span class="math display">\[D_8 = \frac{3}{3+6} = \frac{5}{11}\]</span> <span class="math display">\[D_9 = \frac{4}{4+6} = \frac{2}{5}\]</span> <span class="math display">\[D_{10} = \frac{3}{3+6} = \frac{1}{3}\]</span></p>
+<p>This approach of only considering certain outcomes in the sample space is called the <em>Method of Reduced Sample Space</em>.</p>
+<p>Using these probabilities, we can calculate the player’s chance of winning as follows:</p>
+<p><span class="math display">\[\begin{split}
+P(Win) &amp;= P(X=7) + P(X=11) + \sum_{x \in C} P(X=x)D_x \\
+&amp;\approx 0.493
+\end{split}\]</span></p>
+<p>Thus, craps is not a fair game, although it is quite close to being so.</p>
+<h2 id="alternative-solution">Alternative Solution</h2>
+<p>We can also calculate the probabilities <span class="math inline">\(D_x\)</span> from above using the geometric distribution.</p>
+<p>Let <span class="math inline">\(P_x\)</span> representing the probability of the die sum not being <span class="math inline">\(7\)</span> (which results in a loss) and not being the "point" <span class="math inline">\(x\)</span> (which results in a win). Then, the probability of winning on the <span class="math inline">\((i + 1)\)</span><sup>th</sup> roll can be written as <span class="math inline">\((P_x)^i*P(X=x)\)</span>. Then, we can calculate <span class="math inline">\(D_x\)</span> by summing this infinite geometric series for all non-negative values of <span class="math inline">\(i\)</span>:</p>
+<p><span class="math display">\[D_x = \frac{a_1}{1-r} = \frac{P(X=x)}{1 - P_x}\]</span></p>
+<p>As an example, we can calculate <span class="math inline">\(D_4\)</span> as follows:</p>
+<p><span class="math display">\[D_4 = \frac{\frac{1}{12}}{1-\left( 1 - \frac{1}{12} - \frac{1}{6} \right)} 
+= \frac{1}{3}\]</span></p>

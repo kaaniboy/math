@@ -1,0 +1,37 @@
+<h1 id="lazy-caterers-sequence">Lazy Caterer’s Sequence</h1>
+<p>The Lazy Caterer’s Sequence describes the maximum number of slices that can be made on a pizza using a given number of straight cuts. The sequence begins as follows:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Cuts</th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">...</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Slices</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">...</td>
+</tr>
+</tbody>
+</table>
+<p>Intuitively, to maximize slices, each straight cut should pass through all prior cuts. Furthermore, that cut should not pass through the intersection of two prior cuts. In this way, the <span class="math inline">\(n^{th}\)</span> cut will pass through <span class="math inline">\(n-1\)</span> previous cuts and be divided into <span class="math inline">\(n\)</span> segments. Each of those <span class="math inline">\(n\)</span> segments will split an existing slice in <span class="math inline">\(2\)</span>, resulting in <span class="math inline">\(n\)</span> new slices.</p>
+<p>Formally, this can be expressed by the following recurrence relation, with base case <span class="math inline">\(f(0) = 1\)</span>. <span class="math inline">\(f(n)\)</span> represents the maximum number of slices with <span class="math inline">\(n\)</span> cuts:</p>
+<p><span class="math display">\[f(n) = n + f(n-1)\]</span></p>
+<p>The closed form of this recurrence can be developed using the triangle numbers:</p>
+<p><span class="math display">\[\begin{split}
+f(n) &amp;= n + f(n-1) \\
+&amp;= n + (n-1) + f(n-2) \\
+&amp;= n + (n-1) + (n-2) + (n-3) + \ldots + 1 + f(0) \\
+&amp;= \frac{n(n+1)}{2} + 1 \\
+&amp;= \frac{n^2 + n + 2}{2}
+\end{split}\]</span></p>

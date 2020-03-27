@@ -1,0 +1,12 @@
+<h1 id="the-little-end-of-the-stick">The Little End of the Stick</h1>
+<h2 id="problem">Problem</h2>
+<p>(a) If a stick is broken in <span class="math inline">\(2\)</span> at random, what is the average length of the smaller piece?</p>
+<p>(b) What is the average ratio of the smaller length to the larger?</p>
+<h2 id="part-a-solution">Part (a) Solution</h2>
+<p>Clearly, the smaller piece will be no more than <span class="math inline">\(\frac{1}{2}\)</span> the length of the stick. Let <span class="math inline">\(S\)</span> be the length of the smaller piece, which follows a continuous uniform distribution over <span class="math inline">\([0, \frac{1}{2}]\)</span>. Thus, the expected length is:</p>
+<p><span class="math display">\[E[S] = \frac{0 + \frac{1}{2}}{2} = \frac{1}{4}\]</span></p>
+<h2 id="part-b-solution">Part (b) Solution</h2>
+<p>To calculate the average ratio, we apply the definition of the expected value by integrating over the possible lengths of the smaller piece:</p>
+<p><span class="math display">\[\int_0^{\frac{1}{2}} \left(\frac{x}{1-x}\right) \frac{dx}{1/2}
+= \ln{4} - 1 \approx 0.3863\]</span></p>
+<p>The above integral is leasily solved with the substitution <span class="math inline">\(u=1-x\)</span>, giving an average ratio of about <span class="math inline">\(0.3863\)</span>.</p>

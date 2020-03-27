@@ -1,0 +1,12 @@
+<h1 id="hurried-duelers">Hurried Duelers</h1>
+<h2 id="problem">Problem</h2>
+<p>Duels in the town of Discretion are rarely fatal. There, each contestant comes at a random moment between <span class="math inline">\(5\)</span> AM and <span class="math inline">\(6\)</span> AM on the appointed day and leaves exactly <span class="math inline">\(5\)</span> minutes later, honor served, unless his opponent arrives within the time interval and then they fight. What fraction of duels lead to violence?</p>
+<h2 id="solution">Solution</h2>
+<p>Let <span class="math inline">\(X\)</span> be the arrival time of the first contestant, and <span class="math inline">\(Y\)</span> that of the second. For simplicity, we will scale the duration between <span class="math inline">\(5\)</span> AM and <span class="math inline">\(6\)</span> AM to the value <span class="math inline">\(1\)</span>, so that <span class="math inline">\(\frac{1}{12}\)</span> corresponds to <span class="math inline">\(5\)</span> minutes. Using this notation, the fraction of duels that will to violence can be stated as:</p>
+<p><span class="math display">\[P\left(|X - Y| &lt; \frac{1}{12}\right) = 
+P\left(-\frac{1}{12} &lt; X - Y &lt; \frac{1}{12}\right)\]</span></p>
+<p>Graphing this inequality gives the following shaded region representing duels that lead to violence:</p>
+<figure>
+<img src="HurriedDuelers.png" style="width:3cm" alt="" /><figcaption>The shaded area represents duels that lead to violence</figcaption>
+</figure>
+<p>The relevant region is a unit square (since <span class="math inline">\(0 \leq X \leq 1\)</span> and <span class="math inline">\(0 \leq Y \leq 1\)</span>), and <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are both uniformly distributed, so we can calculate the probability of violence as the total area of the square, minus the areas that do not lead to violence, which gives <span class="math inline">\(1 - \left(\frac{11}{12}\right)^2 = \frac{23}{144} \approx \frac{1}{6}\)</span>.</p>

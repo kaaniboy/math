@@ -1,0 +1,11 @@
+<h1 id="chuck-a-luck">Chuck-a-Luck</h1>
+<p>In the Chuck-a-Luck game, a player chooses a number between <span class="math inline">\(1\)</span> and <span class="math inline">\(6\)</span>, and then <span class="math inline">\(3\)</span> dice are thrown. If their number appears on one, two, or three of the dice, they win one, two, or three times their original stake, respectively, plus their original stake back. Otherwise, they lose their original stake.</p>
+<p>Using the binomial distribution, we can easily calculate the expected loss in this game on a unit ($<span class="math inline">\(1\)</span>) stake. The probability of none of the dice landing the player’s guess is:</p>
+<p><span class="math display">\[\binom{3}{0}(1/6)^0(5/6)^3 = \frac{125}{216}\]</span></p>
+<p>The probability of <span class="math inline">\(1\)</span> of the dice landing the player’s guess is:</p>
+<p><span class="math display">\[\binom{3}{1}(1/6)^1(5/6)^2 = \frac{25}{72}\]</span></p>
+<p>In a similar fashion, the probabilities for the dice landing <span class="math inline">\(2\)</span> or <span class="math inline">\(3\)</span> of the player’s guesses are <span class="math inline">\(\frac{5}{72}\)</span> and <span class="math inline">\(\frac{1}{216}\)</span>, respectively.</p>
+<p>Combining these probabilities, the expected result of playing the game on a unit stake is:</p>
+<p><span class="math display">\[\frac{25}{72}(1) + \frac{5}{72}(2) + \frac{1}{216}(3) 
++ \frac{125}{216}(-1) = -0.08\]</span></p>
+<p>Thus, the player can expect to lose about <span class="math inline">\(8\)</span> cents on a unit stake in Chuck-a-Luck.</p>

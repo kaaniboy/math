@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\usepackage[symbol]{footmisc}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{secnumdepth}{0}
+
+\date{}
+\author{Kaan Aksoy | Feb 24, 2020}
+
+\begin{document}
+
+\maketitle
+\section{Collecting Coupons}
+\subsection{Problem}
+
+Coupons in cereal boxes are numbered $1$ to $5$, 
+and a set of one of each is required for a prize. 
+With one coupon per box, how many boxes on the 
+average are required to make a complete set?
+
+\subsection{Solution}
+
+Let $X_{1}$, $X_{2}$, \ldots, $X_{5}$ be random 
+variables representing the number of boxes opened 
+until receiving the $1$\textsuperscript{st},
+$2$\textsuperscript{nd}, \ldots, 
+and $5$\textsuperscript{th} unique coupon, respectively, 
+where the number of boxes is counted since the last 
+box containing a unique coupon was opened. For example, $X_{3}$ 
+represents the number of boxes opened after the 
+$2$\textsuperscript{nd} unique coupon was found up 
+until the $3$\textsuperscript{3rd} unique coupon was found.
+
+Each $X_{i}$ is a 
+geometric random variable associated with a 
+different probability of success. For example, $X_{1}$ 
+is associated with $p_{1} = 1$ because the 
+$1$\textsuperscript{st} box will obviously contain
+a unique coupon. $X_{2}$ is 
+associated with $p_{2} = \frac{4}{5}$ because only $4$
+of the $5$ coupons are unique at that point. 
+Probabilities for the remaining $X_{i}$ can be 
+calculated in a similar fashion. For geometric 
+random variables, we also know that 
+$E[X_{i}] = \frac{1}{p_{i}}$.
+
+To solve the problem, we can apply the 
+\textit{Linearity of Expectation} property as 
+follows:
+
+\begin{equation*}
+\begin{split}
+E \left[\sum_{i=1}^5 X_{i} \right] &= \sum_{i=1}^5 E[X_{i}] \\
+&= \sum_{i=1}^5 \frac{1}{p_{i}} \\
+&= 5 \left( \frac{1}{5} + \frac{1}{4} + 
+\frac{1}{3} + \frac{1}{2} + \frac{1}{1} \right) \\
+&= \frac{137}{12} \approx 11.42
+\end{split}
+\end{equation*}
+
+\subsection{Notes}
+
+When generalized to $n$ coupons, the solution to this 
+problem can be written as:
+
+$$
+C(n) = n \sum_{i=1}^n \frac{1}{i} = nH_{n}
+$$
+
+In the above, $H_{n}$ represents the $n$\textsuperscript{th} 
+\textit{Harmonic Number}, which is the sum of the reciprocals 
+of integers from $1$ to $n$.
+
+\end{document}

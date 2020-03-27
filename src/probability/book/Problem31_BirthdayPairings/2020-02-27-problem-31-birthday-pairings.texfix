@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\usepackage[symbol]{footmisc}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{secnumdepth}{0}
+
+\newcommand*{\perm}[2]{{}^{#1}\!P_{#2}}%
+
+\date{}
+\author{Kaan Aksoy | Feb 27, 2020}
+
+\begin{document}
+
+\maketitle
+\section{Birthday Pairings}
+\subsection{Problem}
+
+What is the least number of persons required if the 
+probability exceeds $\frac{1}{2}$ that two or more 
+of them have the same birthday? (Year of birth need 
+not match.)
+
+\subsection{Solution}
+
+We begin by calculating the probability that $n$ people 
+all have different birthdays, which is:
+
+$$P(All\; Different\; Birthdays) = \frac{\perm{365}{n}}{365^n} = 
+\frac{365!}{(365-n)!365^n}$$
+
+In the above, the numerator represents the number of ways 
+for $n$ people to all have different birthdays, while the 
+denominator represents the number of possible birthday 
+configurations for $n$ people. 
+
+The probability that at least $1$ pair shares the same birthday is simply $1 - P(All\; Different\; Birthdays)$. So, we can 
+solve the problem by graphing and choosing 
+the smallest integer $n$ that makes the probability exceed 
+$\frac{1}{2}$. This gives the value $n = 23$.
+
+\end{document}

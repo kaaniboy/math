@@ -1,0 +1,24 @@
+<h1 id="theater-row">Theater Row</h1>
+<h2 id="problem">Problem</h2>
+<p>Eight eligible bachelors and seven beautiful models happen randomly to have purchased single seats in the same 15-seat row of a theater. On the average, how many pairs of adjacent seats are ticketed for marriageable couples<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>?</p>
+<h2 id="solution">Solution</h2>
+<p>Let <span class="math inline">\(X\)</span> be a random variable denoting the number of pairs that are marriageable. We can rewrite <span class="math inline">\(X\)</span> as <span class="math inline">\(X = X_{1} + X_{2} + \ldots 
++ X_{14}\)</span>, where each <span class="math inline">\(X_{i}\)</span> is a random variable representing the number of marriageable couples in the <span class="math inline">\(i^{th}\)</span> pair of adjacent seats. Note that each <span class="math inline">\(X_{i}\)</span> can take on either <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span> only.</p>
+<p>We can easily calculate <span class="math inline">\(E[X_{i}]\)</span> by considering the two arrangements that result in a marriageable pair, which are <em>Male-Female</em> and <em>Female-Male</em>:</p>
+<p><span class="math display">\[E[X_{i}] = \left(\frac{8}{15}\right) 
+\left(\frac{7}{14}\right) + 
+\left(\frac{7}{15}\right)
+\left(\frac{8}{14}\right) = \frac{8}{15}\]</span></p>
+<p>Then, applying the <em>Linearity of Expectation</em> property, we can calculate <span class="math inline">\(E[X]\)</span> as follows:</p>
+<p><span class="math display">\[\begin{split}
+E[X] &amp;= E[X_{1} + X_{2} + \ldots + X_{14}] \\
+&amp;= E[X_{1}] + E[X_{2}] + \ldots + E[X_{14}] \\
+&amp;= 14\left(\frac{8}{15}\right)
+\end{split}\]</span></p>
+<p>Thus, the expected number of marriageable pairs in the row of <span class="math inline">\(15\)</span> seats is <span class="math inline">\(E[X] \approx 7.46\)</span>.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>According to outdated cultural norms from the time of this problem’s publication.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>

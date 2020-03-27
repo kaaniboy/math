@@ -1,0 +1,21 @@
+<h1 id="the-clumsy-chemist">The Clumsy Chemist</h1>
+<h2 id="problem">Problem</h2>
+<p>In a laboratory, each of a handful of thin 9-inch glass rods had one tip marked with a blue dot and the other with a red. When the laboratory assistant tripped and dropped them onto the concrete floor, many broke into three pieces. For these, what was the average length of the fragment with the blue dot?</p>
+<h2 id="solution">Solution</h2>
+<p>To solve this problem, we will apply the <em>Principle of Symmetry</em>:</p>
+<blockquote>
+<p>When <span class="math inline">\(n\)</span> points are dropped at random on an interval, the lengths of the <span class="math inline">\(n + 1\)</span> line segments have identical distributions.</p>
+</blockquote>
+<p>This problem is an application of this principle with <span class="math inline">\(n = 2\)</span>. Let <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, and <span class="math inline">\(X_3\)</span> represent the lengths of the <span class="math inline">\(3\)</span> pieces of the broken rod. By the <em>Principle of Symmetry</em>, we know these all have the same expected value. Furthermore, we know the expected sum of their lengths is <span class="math inline">\(9\)</span> inches. So, it follows that:</p>
+<p><span class="math display">\[E[X_1+X_2+X_3] = 9\]</span> <span class="math display">\[E[X_1] + E[X_2] + E[X_3]= 9\]</span> <span class="math display">\[E[X_1] = E[X_2] = E[X_3]= 3\]</span></p>
+<p>Thus, the average length of the piece with the blue dot is <span class="math inline">\(3\)</span> inches.</p>
+<h2 id="alternative-solution">Alternative Solution</h2>
+<p>We can approach this problem without the <em>Principle of Symmetry</em>. Let <em>B</em> represent the length of the piece with the blue dot. For the sake of simplicity, we scale the rod to 1 inch. Then, we have the following:</p>
+<p><span class="math display">\[P(B &gt; x) = (1-x)^2\]</span></p>
+<p>The intuition is that, for the blue piece to have a length of more than <span class="math inline">\(x\)</span>, the <span class="math inline">\(2\)</span> breaks must be in the remaining <span class="math inline">\((1-x)\)</span> region of the rod.</p>
+<p>Next, we construct the probability density function for <span class="math inline">\(B\)</span> by taking the derivative of the complement of the above function:</p>
+<p><span class="math display">\[f(x) = \dfrac{d}{dx}P(B \leq x) = \dfrac{d}{dx} 
+\left[1 - (1-x)^2 \right] = 2-2x\]</span></p>
+<p>Finally, we apply the definition of expected value, <span class="math inline">\(E[X] = \int xf(x)dx\)</span>, to get the solution:</p>
+<p><span class="math display">\[\int_0^1 x(2-2x)dx = \frac{1}{3}\]</span></p>
+<p>Scaling back to the original length of the rod gives an average length of <span class="math inline">\(3\)</span> inches for the blue piece.</p>

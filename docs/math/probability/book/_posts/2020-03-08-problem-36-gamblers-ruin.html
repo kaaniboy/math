@@ -1,0 +1,15 @@
+<h1 id="gamblers-ruin">Gambler’s Ruin</h1>
+<h2 id="problem">Problem</h2>
+<p>Player <span class="math inline">\(M\)</span> has $<span class="math inline">\(1\)</span>, and Player <span class="math inline">\(N\)</span> has $<span class="math inline">\(2\)</span>. Each play gives one of the players $<span class="math inline">\(1\)</span> from the other. Player <span class="math inline">\(M\)</span> is enough better than Player <span class="math inline">\(N\)</span> that he wins <span class="math inline">\(\frac{2}{3}\)</span> of the plays. They play until one is bankrupt. What is the chance that Player <span class="math inline">\(M\)</span> wins?</p>
+<h2 id="solution">Solution</h2>
+<p>Let <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> represent victories by Player <span class="math inline">\(M\)</span> and Player <span class="math inline">\(N\)</span>, respectively. Then, consider the various sequences that result in Player <span class="math inline">\(M\)</span>’s victory:</p>
+<p><span class="math display">\[\text{Case 0: } M M\]</span> <span class="math display">\[\text{Case 1: } M N M M\]</span> <span class="math display">\[\text{Case 2: } M N M N M M\]</span> <span class="math display">\[\text{\ldots}\]</span> <span class="math display">\[\text{Case \textit{n}: } (M N)^n M M\]</span></p>
+<p>From the above, we can draw the following insights regarding sequences that result in Player <span class="math inline">\(M\)</span>’s victory:</p>
+<ul>
+<li><p>Player <span class="math inline">\(N\)</span> must not win the <span class="math inline">\(1^{st}\)</span> play</p></li>
+<li><p>Player <span class="math inline">\(M\)</span> winning <span class="math inline">\(2\)</span> plays in a row results in a victory</p></li>
+<li><p>Player <span class="math inline">\(N\)</span> must not win <span class="math inline">\(2\)</span> players in a row</p></li>
+</ul>
+<p>These insights lead to the following convergent geometric series representing Player <span class="math inline">\(M\)</span>’s probability of victory:</p>
+<p><span class="math display">\[P(M\; Victory) = \sum_{i=0}^{\infty} \left[ 
+\left( \frac{2}{3} \right) \left( \frac{1}{3}\right) \right] ^n\left(\frac{2}{3}\right)^2 = \frac{4}{7}\]</span></p>

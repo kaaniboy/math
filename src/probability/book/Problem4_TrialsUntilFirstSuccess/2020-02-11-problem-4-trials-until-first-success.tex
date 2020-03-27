@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}%
+
+\setcounter{secnumdepth}{0}
+
+\date{}
+\author{Kaan Aksoy | Feb 10, 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Trials until First Success}
+\subsection{Geometric Distribution}
+The geometric distribution describes the number of 
+Bernoulli trials until the first success. According to the 
+distribution, the mean number of trials until success is 
+$ \frac{1}{p}$, where $p$ is the probability of success. 
+From the geometric distribution, we can expect to toss a 
+die $\frac{1}{\frac{1}{6}} = 6$ times before landing a $6$.
+
+\subsection{Another Approach}
+
+Let \underbar{X} be the number of trials until the first success (including the success). Given a probability of 
+success of $\frac{1}{6}$, we can write $E[X]$ as:
+
+\begin{equation*}
+\begin{split}
+E[X] &=  \sum_{i=0}^{\infty} (i + 1)\left( \frac{5}{6} \right)^i \left( \frac{1}{6} \right) \\
+&= \left( \frac{1}{6} \right) \left[ \sum_{i=0}^{\infty} i\left( \frac{5}{6} \right)^i +  \sum_{i=0}^{\infty} \left( \frac{5}{6} \right)^i \right]
+\end{split}
+\end{equation*}
+
+Since $|\frac{5}{6}| < 1$, the second infinite geometric series converges, and has 
+the value $\frac{1}{1 - \frac{5}{6}} = 6$. Manipulating the second series gives the 
+following:
+
+\begin{equation*}
+\begin{split}
+\sum_{i=0}^{\infty} i\left( \frac{5}{6} \right)^i &=
+\sum_{n=1}^{\infty} \sum_{m=1}^{n} \left( \frac{5}{6} \right)^n \\ &= 
+\sum_{m=1}^{\infty} \sum_{n=m}^{\infty} \left( \frac{5}{6} \right)^n \\ &= 
+6 \sum_{m=1}^{\infty} \left( \frac{5}{6} \right)^m \\ &= 30
+\end{split}
+\end{equation*}
+
+Substituting back into the original equation for $E[X]$, we get $E[X] = \frac{1}{6} \left( 30 + 6 \right) = 6$.
+
+\end{document}

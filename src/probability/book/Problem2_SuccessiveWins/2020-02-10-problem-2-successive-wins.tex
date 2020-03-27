@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}%
+
+\setcounter{secnumdepth}{0}
+
+\date{}
+\author{Kaan Aksoy | Feb 10, 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Successive Wins}
+
+The three-set series containing two wins in a row  
+are $WWW$, $WWL$, and $LWW$ (where $W$ is a win, 
+and $L$ is a loss). Let $p$ be the probability that Elmer beats his 
+father, and let $q$ be the probability that he 
+beats the champion. 
+
+Using the champion-father-champion 
+ordering, the probability of two wins in a row is:
+
+$$qpq + qp(1-q) + (1-q)pq = 2pq-q^2p$$
+
+Using the father-champion-father ordering, 
+the probability of two wins in a row is:
+$$pqp + pq(1-p) + (1-p)qp = 2pq - p^2q$$
+
+Since, $p > q$, we know that:
+$$ p > q $$
+$$ pq > q^2 $$
+$$ p^2q > q^2p $$
+
+It follows that $2pq - q^2p > 2pq - p^2q$. Thus, Elmer 
+should choose the champion-father-champion ordering.
+
+\end{document}

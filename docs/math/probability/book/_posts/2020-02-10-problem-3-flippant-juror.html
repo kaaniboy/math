@@ -1,0 +1,36 @@
+<h1 id="the-flippant-juror">The Flippant Juror</h1>
+<p>The 3-person jury makes its decisions based on majority rule. Jurors <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> each have probability <span class="math inline">\(p\)</span> of making the right decision, while Juror <span class="math inline">\(C\)</span> has a probability of <span class="math inline">\(\frac{1}{2}\)</span> of making the right decision. The cases where they make the right decision are as follows (where <span class="math inline">\(R\)</span> represents a right decision, and <span class="math inline">\(W\)</span> represents a wrong one):</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Juror A</th>
+<th style="text-align: center;">Juror B</th>
+<th style="text-align: center;">Juror C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">R</td>
+<td style="text-align: center;">R</td>
+<td style="text-align: center;">R</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">R</td>
+<td style="text-align: center;">R</td>
+<td style="text-align: center;">W</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">R</td>
+<td style="text-align: center;">W</td>
+<td style="text-align: center;">R</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">W</td>
+<td style="text-align: center;">R</td>
+<td style="text-align: center;">R</td>
+</tr>
+</tbody>
+</table>
+<p>Summing the probabilities of these 4 individual cases gives:</p>
+<p><span class="math display">\[\frac{p^2}{2} + \frac{p^2}{2} + \frac{p(1-p)}{2} + \frac{p(1-p)}{2} = p\]</span></p>
+<p>Thus, the 1-person and 3-person juries both have the same probability of making the right decision.</p>

@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\usepackage[symbol]{footmisc}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{secnumdepth}{0}
+
+\newcommand*{\perm}[2]{{}^{#1}\!P_{#2}}%
+
+\date{}
+\author{Kaan Aksoy | Feb 27, 2020}
+
+\begin{document}
+
+\maketitle
+\section{Finding Your Birthmate}
+\subsection{Problem}
+
+You want to find someone whose birthday matches yours. 
+What is the least number of strangers whose birthday you 
+need to ask about to have a $50$-$50$ chance?
+
+\subsection{Solution}
+
+Let $X$ be a random variable representing the number 
+of people you need to ask before finding someone whose 
+birthday matches yours. Then, applying the geometric 
+distribution, we know $P(X=n)$ is:
+
+$$
+P(X=n) = \left(\frac{364}{365}\right)^n
+\left(\frac{1}{365}\right)
+$$
+
+Extending the above, the probability that $X$ is no more than some value $n$ is simply:
+
+$$
+P(X \leq n) = \sum_{i=0}^n \left(\frac{364}{365}\right)^n
+\left(\frac{1}{365}\right)
+$$
+
+
+To finish this problem, we assign $P(X \leq n) = \frac{1}{2}$ 
+and solve for $n$:
+
+$$
+\frac{1}{2} = \sum_{i=0}^n \left(\frac{364}{365}\right)^n
+\left(\frac{1}{365}\right) = \frac{\frac{1}{365}\left[1-\left(\frac{364}{365}\right)^n
+\right]} {1-\frac{364}{365}}
+$$
+
+$$
+\frac{1}{2} = \left(\frac{364}{365}\right)^n
+$$
+
+The first line above comes from 
+applying the formula for the sum of a finite geometric series, 
+which is $s_n = \frac{a_1(1-r^n)}{1-r}$. The final answer is 
+$\log_\frac{364}{365} \frac{1}{2} \approx 253$.
+\end{document}

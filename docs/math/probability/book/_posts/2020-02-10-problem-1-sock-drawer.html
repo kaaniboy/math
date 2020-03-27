@@ -1,0 +1,43 @@
+<h1 id="the-sock-drawer">The Sock Drawer</h1>
+<h2 id="part-a">Part A</h2>
+<p>We would like to find the fewest number of socks (which are either red or black) such that the probability of two drawn socks both being red is <span class="math inline">\(\frac{1}{2}\)</span>. Let <span class="math inline">\(r\)</span> be the number of red socks and <span class="math inline">\(b\)</span> be the number of black socks.</p>
+<p>The probability that the two drawn socks are both red is: <span class="math display">\[\frac{r}{r+b}\cdot\frac{r-1}{r+b-1} = \frac{1}{2}\]</span></p>
+<p>Note that, for <span class="math inline">\(b &gt; 0\)</span>, <span class="math inline">\(\frac{r}{r+b} &gt; \frac{r-1}{r+b-1}\)</span>. Using this, we can say that:</p>
+<p><span class="math display">\[\left( \frac{r}{r+b} \right)^2 &gt; \frac{1}{2} 
+&gt; \left( \frac{r-1}{r+b-1} \right)^2\]</span></p>
+<p>Taking the square root and rearranging gives:</p>
+<p><span class="math display">\[\frac{1-\sqrt{2}-b}{1-\sqrt{2}} &gt; r &gt; \frac{b}{\sqrt{2}-1}\]</span></p>
+<p>Trying <span class="math inline">\(b=1\)</span>, we get <span class="math inline">\(3.414 &gt; r &gt; 2.414\)</span>, which leaves only <span class="math inline">\(r=3\)</span>. Thus, the fewest number of socks for a <span class="math inline">\(\frac{1}{2}\)</span> probability of drawing two reds is <span class="math inline">\(4\)</span> (with <span class="math inline">\(3\)</span> red socks, and <span class="math inline">\(1\)</span> black sock).</p>
+<h2 id="part-b">Part B</h2>
+<p>Now, we would like to solve the same question with the added constraint that the number of black socks is even. To do so, we will try increasing even values for <span class="math inline">\(b\)</span> along with the inequality from <em>Part A</em>.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(b\)</span></th>
+<th style="text-align: center;">Inequality</th>
+<th style="text-align: center;">Potential <span class="math inline">\(r\)</span></th>
+<th style="text-align: center;">Probability of two reds</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><span class="math inline">\(4.828 &lt; r &lt; 5.828\)</span></td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0.476</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"><span class="math inline">\(9.656 &lt; r &lt; 10.656\)</span></td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0.494</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;"><span class="math inline">\(14.485 &lt; r &lt; 15.485\)</span></td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">0.50</td>
+</tr>
+</tbody>
+</table>
+<p>Thus, The fewest number of socks with an even number of black socks is 21 (with 15 reds and 6 blacks).</p>

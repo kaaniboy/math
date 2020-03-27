@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\usepackage[symbol]{footmisc}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\setcounter{secnumdepth}{0}
+
+\date{}
+\author{Kaan Aksoy | March 12, 2020}
+
+\begin{document}
+
+\maketitle
+\section{Average Number of Matches}
+
+\subsection{Problem}
+The following are two versions of the matching problem:
+
+(a) From a shuffled deck, cards are laid out on a table 
+one at a time, face up from left to right, and then another 
+deck is laid out so that each of its cards is beneath a 
+card of the first deck. What is the average number of 
+matches on the card above and the card below in repetitions 
+of this experiment?
+
+(b) A typist types letters and envelopes to n different persons. 
+The letters are randomly put into the envelopes. On the 
+average, how may letters are put into their own envelopes?				
+
+\subsection{Part (a) Solution}
+
+We will apply the property of \textit{Linearity of Expectation}.
+Let $X = X_1 + X_2 + \ldots + X_{52}$ be the total number of 
+card matches, where each $X_i$ represents the number of 
+matches (either $0$ or $1$) for the $i$\textsuperscript{th} 
+card. We know $E[X_i] = \frac{1}{52}$. So, we can easily 
+calculate the solution as follows:
+
+\begin{equation*}
+\begin{split}
+E[X] &= E[X_1 + X_2 + \ldots + X_{52}] \\
+&= E[X_1] + E[X_2] + \ldots + E[X_{52}] \\
+&= 52\left(\frac{1}{52}\right) \\
+&= 1
+\end{split}
+\end{equation*}
+
+In conclusion, we can expect $1$ card to match on average.
+
+\subsection{Part (b) Solution}
+
+The same logic from Part (a) applies here, giving a 
+solution of $n\left(\frac{1}{n}\right) = 1$ matching 
+letters on average.
+
+\end{document}

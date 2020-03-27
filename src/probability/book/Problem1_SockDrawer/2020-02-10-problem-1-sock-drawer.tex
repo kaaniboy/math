@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}%
+
+\setcounter{secnumdepth}{0}
+
+\date{}
+\author{Kaan Aksoy | Feb 10, 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{The Sock Drawer}
+\subsection{Part A}
+
+We would like to find the fewest number of socks (which are either red or black) such that
+the probability of two drawn socks both being red is $\frac{1}{2}$. 
+Let $r$ be the number of red socks and $b$ be the number of 
+black socks. 
+
+The probability that the two drawn socks are both red is:
+$$\frac{r}{r+b}\cdot\frac{r-1}{r+b-1} = \frac{1}{2}$$
+
+Note that, for $b > 0$, $\frac{r}{r+b} > \frac{r-1}{r+b-1}$.
+Using this, we can say that:
+
+$$\left( \frac{r}{r+b} \right)^2 > \frac{1}{2} 
+> \left( \frac{r-1}{r+b-1} \right)^2$$
+
+Taking the square root and rearranging gives:
+    
+$$\frac{1-\sqrt{2}-b}{1-\sqrt{2}} > r > \frac{b}{\sqrt{2}-1}$$
+
+Trying $b=1$, we get $3.414 > r > 2.414$, which leaves only 
+$r=3$. Thus, the fewest number of socks for a $\frac{1}{2}$ 
+probability of drawing two reds is $4$ 
+(with $3$ red socks, and $1$ black sock).
+
+
+\subsection{Part B}
+Now, we would like to solve the same question with the added 
+constraint that the number of black socks is even. To do so,
+we will try increasing even values for $b$ along with the 
+inequality from \textit{Part A}.
+
+\begin{center}
+\begin{tabular}{ |c|c|c|c| }
+ \hline
+ $b$ & Inequality & Potential $r$ & Probability of two reds \\ 
+ \hline
+ 2 & $ 4.828 < r < 5.828 $ & 5 & 0.476 \\  
+ 4 & $ 9.656 < r < 10.656 $ & 10 & 0.494 \\
+ 6 & $ 14.485 < r < 15.485 $ & 15 & 0.50 \\
+ \hline
+\end{tabular}
+\end{center}
+
+Thus, The fewest number of socks with an even number of black 
+socks is 21 (with 15 reds and 6 blacks).
+
+\end{document}

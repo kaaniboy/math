@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}%
+
+\setcounter{secnumdepth}{0}
+
+\date{}
+\author{Kaan Aksoy | Feb 11, 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Lazy Caterer's Sequence}
+The Lazy Caterer's Sequence describes the maximum number of 
+slices that can be made on a pizza using a given number of 
+straight cuts. The sequence begins as follows:
+
+\begin{center}
+\begin{tabular}{ c|cccccc } 
+ Cuts & 0 & 1 & 2 & 3 & 4 & ... \\ 
+ \hline
+ Slices & 1 & 2 & 4 & 7 & 11 & ... \\ 
+\end{tabular}
+\end{center}
+
+Intuitively, to maximize slices, each straight cut should 
+pass through all prior cuts. Furthermore, that cut should 
+not pass through the intersection of two prior cuts. In 
+this way, the $n^{th}$ cut will pass through $n-1$ previous 
+cuts and be divided into $n$ segments. Each of those 
+$n$ segments will split an existing slice in $2$, resulting in 
+$n$ new slices.
+
+Formally, this can be expressed by the following recurrence 
+relation, with base case $f(0) = 1$. $f(n)$ represents the 
+maximum number of slices with $n$ cuts:
+
+$$ f(n) = n + f(n-1) $$
+
+The closed form of this recurrence can be developed using 
+the triangle numbers:
+
+\begin{equation*}
+\begin{split}
+f(n) &= n + f(n-1) \\
+&= n + (n-1) + f(n-2) \\
+&= n + (n-1) + (n-2) + (n-3) + \ldots + 1 + f(0) \\
+&= \frac{n(n+1)}{2} + 1 \\
+&= \frac{n^2 + n + 2}{2}
+\end{split}
+\end{equation*}
+
+
+
+
+\end{document}

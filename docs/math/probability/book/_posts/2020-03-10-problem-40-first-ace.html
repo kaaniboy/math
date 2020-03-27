@@ -1,0 +1,22 @@
+<h1 id="the-first-ace">The First Ace</h1>
+<h2 id="problem">Problem</h2>
+<p>Shuffle an ordinary deck of <span class="math inline">\(52\)</span> playing cards containing <span class="math inline">\(4\)</span> aces. Then turn up cards from the top until the first ace appears. On the average, how many cards are required to produce the first ace?</p>
+<h2 id="solution">Solution</h2>
+<p>Let <span class="math inline">\(X\)</span> represent the number of cards that are turned up to produce the <span class="math inline">\(1\)</span><sup>st</sup> ace. For this problem, we cannot apply the <em>Geometric Distribution</em> because cards are sampled without replacement.</p>
+<p>Instead, we begin by considering the probabilities of drawing the <span class="math inline">\(1\)</span><sup>st</sup> ace on the <span class="math inline">\(1\)</span><sup>st</sup> card, <span class="math inline">\(2\)</span><sup>nd</sup> card, and so on:</p>
+<p><span class="math display">\[\begin{split}
+P(1st\;Card) &amp;= \frac{4}{52} \\
+P(2nd\;Card) &amp;= \left(\frac{48}{52}\right)\left(\frac{4}{51}\right) \\
+P(3rd\;Card) &amp;= \left(\frac{48}{52}\right)\left(\frac{47}{51}\right)
+\left(\frac{4}{50}\right) \\
+P(n^{th}\; card) &amp;= 4\left[\frac{48!}{(49-x)!}\right]\left[{\frac{(52-x)!}{52!}} \right]
+\end{split}\]</span></p>
+<p>Then, we can calculate the average number of cards by applying the definition of expected value:</p>
+<p><span class="math display">\[E[X] = \sum_{x=1}^{52} 
+4x\left[\frac{48!}{(49-x)!}\right]\left[{\frac{(52-x)!}{52!}} \right]
+= \frac{53}{5} = 10.6\]</span></p>
+<p>Thus, on average it will take <span class="math inline">\(10.6\)</span> cards to get the <span class="math inline">\(1\)</span><sup>st</sup> ace.</p>
+<h2 id="alternative-solution">Alternative Solution</h2>
+<p>The solution above is complex due to the unwieldy summation. Another approach is to apply the <em>Principle of Symmetry</em>, which states that <span class="math inline">\(n\)</span> randomly placed points will divide a segment into <span class="math inline">\(n+1\)</span> pieces, each of which has the same distribution.</p>
+<p>This problem is an application of the principle with <span class="math inline">\(n=4\)</span>, since each ace in the deck represents a division point. Then, the average length of the <span class="math inline">\(5\)</span> segments (stretches of cards without an ace) is <span class="math inline">\(\frac{52-4}{5} = \frac{48}{5}\)</span>. Each of these segments is immediately followed by an ace, so the expected number of cards until the <span class="math inline">\(1\)</span><sup>st</sup> ace is the following:</p>
+<p><span class="math display">\[E[X] = \frac{48}{5} + 1 = \frac{53}{5} = 10.6\]</span></p>

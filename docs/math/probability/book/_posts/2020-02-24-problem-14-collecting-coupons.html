@@ -1,0 +1,18 @@
+<h1 id="collecting-coupons">Collecting Coupons</h1>
+<h2 id="problem">Problem</h2>
+<p>Coupons in cereal boxes are numbered <span class="math inline">\(1\)</span> to <span class="math inline">\(5\)</span>, and a set of one of each is required for a prize. With one coupon per box, how many boxes on the average are required to make a complete set?</p>
+<h2 id="solution">Solution</h2>
+<p>Let <span class="math inline">\(X_{1}\)</span>, <span class="math inline">\(X_{2}\)</span>, …, <span class="math inline">\(X_{5}\)</span> be random variables representing the number of boxes opened until receiving the <span class="math inline">\(1\)</span><sup>st</sup>, <span class="math inline">\(2\)</span><sup>nd</sup>, …, and <span class="math inline">\(5\)</span><sup>th</sup> unique coupon, respectively, where the number of boxes is counted since the last box containing a unique coupon was opened. For example, <span class="math inline">\(X_{3}\)</span> represents the number of boxes opened after the <span class="math inline">\(2\)</span><sup>nd</sup> unique coupon was found up until the <span class="math inline">\(3\)</span><sup>3rd</sup> unique coupon was found.</p>
+<p>Each <span class="math inline">\(X_{i}\)</span> is a geometric random variable associated with a different probability of success. For example, <span class="math inline">\(X_{1}\)</span> is associated with <span class="math inline">\(p_{1} = 1\)</span> because the <span class="math inline">\(1\)</span><sup>st</sup> box will obviously contain a unique coupon. <span class="math inline">\(X_{2}\)</span> is associated with <span class="math inline">\(p_{2} = \frac{4}{5}\)</span> because only <span class="math inline">\(4\)</span> of the <span class="math inline">\(5\)</span> coupons are unique at that point. Probabilities for the remaining <span class="math inline">\(X_{i}\)</span> can be calculated in a similar fashion. For geometric random variables, we also know that <span class="math inline">\(E[X_{i}] = \frac{1}{p_{i}}\)</span>.</p>
+<p>To solve the problem, we can apply the <em>Linearity of Expectation</em> property as follows:</p>
+<p><span class="math display">\[\begin{split}
+E \left[\sum_{i=1}^5 X_{i} \right] &amp;= \sum_{i=1}^5 E[X_{i}] \\
+&amp;= \sum_{i=1}^5 \frac{1}{p_{i}} \\
+&amp;= 5 \left( \frac{1}{5} + \frac{1}{4} + 
+\frac{1}{3} + \frac{1}{2} + \frac{1}{1} \right) \\
+&amp;= \frac{137}{12} \approx 11.42
+\end{split}\]</span></p>
+<h2 id="notes">Notes</h2>
+<p>When generalized to <span class="math inline">\(n\)</span> coupons, the solution to this problem can be written as:</p>
+<p><span class="math display">\[C(n) = n \sum_{i=1}^n \frac{1}{i} = nH_{n}\]</span></p>
+<p>In the above, <span class="math inline">\(H_{n}\)</span> represents the <span class="math inline">\(n\)</span><sup>th</sup> <em>Harmonic Number</em>, which is the sum of the reciprocals of integers from <span class="math inline">\(1\)</span> to <span class="math inline">\(n\)</span>.</p>

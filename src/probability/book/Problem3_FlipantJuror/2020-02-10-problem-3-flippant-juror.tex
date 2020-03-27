@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}%
+
+\setcounter{secnumdepth}{0}
+
+\date{}
+\author{Kaan Aksoy | Feb 10, 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{The Flippant Juror}
+
+The 3-person jury makes its decisions based on majority rule. Jurors $A$ 
+and $B$ each have probability $p$ of making the right decision, while 
+Juror $C$ has a probability of $\frac{1}{2}$ of making the right decision. 
+The cases where they make the right decision are as follows (where 
+$R$ represents a right decision, and $W$ represents a wrong one):
+
+\begin{center}
+\begin{tabular}{ |c|c|c| }
+ \hline
+ Juror A & Juror B & Juror C \\ 
+ \hline
+ R & R & R \\  
+ R & R & W \\ 
+ R & W & R \\  
+ W & R & R \\  
+ \hline
+\end{tabular}
+\end{center}
+
+Summing the probabilities of these 4 individual cases gives:
+
+$$ \frac{p^2}{2} + \frac{p^2}{2} + \frac{p(1-p)}{2} + \frac{p(1-p)}{2} = p $$
+
+Thus, the 1-person and 3-person juries both have the same probability 
+of making the right decision.
+
+\end{document}

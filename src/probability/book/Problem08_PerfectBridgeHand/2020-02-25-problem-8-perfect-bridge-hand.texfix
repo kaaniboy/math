@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\usepackage[symbol]{footmisc}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{secnumdepth}{0}
+
+\newcommand*{\perm}[2]{{}^{#1}\!P_{#2}}%
+
+\date{}
+\author{Kaan Aksoy | Feb 25, 2020}
+
+\begin{document}
+
+\maketitle
+\section{Perfect Bridge Hand}
+\subsection{Problem}
+
+We often read of someone who has been dealt 13 spades at bridge. 
+With a well-shuffled pack of cards, what is the chance that you 
+are dealt a perfect hand (13 of one suit)? (Bridge is played with 
+an ordinary pack of 52 cards, 13 in each of 4 suits, and each of 
+4 players is dealt 13.)																			
+\subsection{Solution}
+
+For each of the $4$ suits, there are $13!$ ways to draw only cards 
+from that suit. The total number of possible hands a player can be 
+dealt is $\perm{52}{13}$. Thus, the probability of being dealt a 
+perfect hand is:
+
+$$
+P(Perfect \; Hand) = 4 \left( \frac{13!}{\perm{52}{13}} \right)
+\approx 6.299 \times 10^{13}
+$$
+
+\end{document}

@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\usepackage[symbol]{footmisc}
+
+\newtheorem{theorem}{Theorem}[section]
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\setcounter{secnumdepth}{0}
+
+\date{}
+\author{Kaan Aksoy | March 10, 2020}
+
+\begin{document}
+
+\maketitle
+\section{The First Ace}
+\subsection{Problem}
+Shuffle an ordinary deck of $52$ playing cards containing $4$ 
+aces. Then turn up cards from the top until the first ace 
+appears. On the average, how many cards are required to produce 
+the first ace?
+
+\subsection{Solution}
+
+Let $X$ represent the number of cards that are turned 
+up to produce the $1$\textsuperscript{st} ace. For this 
+problem, we cannot apply the \textit{Geometric Distribution}
+because cards are sampled without replacement.
+
+Instead, we begin by considering the 
+probabilities of drawing the $1$\textsuperscript{st} ace 
+on the $1$\textsuperscript{st} card, $2$\textsuperscript{nd} 
+card, and so on:
+
+\begin{equation*}
+\begin{split}
+P(1st\;Card) &= \frac{4}{52} \\
+P(2nd\;Card) &= \left(\frac{48}{52}\right)\left(\frac{4}{51}\right) \\
+P(3rd\;Card) &= \left(\frac{48}{52}\right)\left(\frac{47}{51}\right)
+\left(\frac{4}{50}\right) \\
+P(n^{th}\; card) &= 4\left[\frac{48!}{(49-x)!}\right]\left[{\frac{(52-x)!}{52!}} \right]
+\end{split}
+\end{equation*}
+
+Then, we can calculate the average number of cards by applying the 
+definition of expected value:
+
+$$E[X] = \sum_{x=1}^{52} 
+4x\left[\frac{48!}{(49-x)!}\right]\left[{\frac{(52-x)!}{52!}} \right]
+= \frac{53}{5} = 10.6$$
+
+Thus, on average it will take $10.6$ cards to get the 
+$1$\textsuperscript{st} ace.
+
+\subsection{Alternative Solution}
+The solution above is complex due to the unwieldy summation. Another 
+approach is to apply the \textit{Principle of Symmetry}, which states 
+that $n$ randomly placed points will divide a segment into $n+1$ pieces, 
+each of which has the same distribution.
+
+This problem is an application of the principle with $n=4$, since each 
+ace in the deck represents a division point. Then, the average length 
+of the $5$ segments (stretches of cards without an ace) is 
+$\frac{52-4}{5} = \frac{48}{5}$. Each of these segments is immediately 
+followed by an ace, so the expected number of cards until the 
+$1$\textsuperscript{st} ace is the following:
+
+$$E[X] = \frac{48}{5} + 1 = \frac{53}{5} = 10.6$$
+
+\end{document}

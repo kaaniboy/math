@@ -1,0 +1,20 @@
+<h1 id="random-quadratic-equations">Random Quadratic Equations</h1>
+<h2 id="problem">Problem</h2>
+<p>What is the probability that the following quadratic equation has real roots? <span class="math display">\[x^2 + 2bx + c =0\]</span></p>
+<h2 id="solution">Solution</h2>
+<p>We begin by applying the quadratic formula to the equation given above:</p>
+<p><span class="math display">\[x = \frac{-2b \pm \sqrt{4b^2-4c}}{2}\]</span></p>
+<p>Rearranging the contents of <span class="math inline">\(\sqrt{4b^2-4c}\)</span> shows that the roots are real if and only if the following holds:</p>
+<p><span class="math display">\[4b^2-4c &gt; 0\]</span> <span class="math display">\[c &lt; b^2\]</span></p>
+<figure>
+<img src="Problem50_RandomQuadraticEquation.png" style="width:4cm" alt="" /><figcaption>The shaded area represents equations with real roots</figcaption>
+</figure>
+<p>We can calculate the probability that <span class="math inline">\(c &lt; b^2\)</span> geometrically. We begin by drawing a <span class="math inline">\(2n\)</span> by <span class="math inline">\(2n\)</span> square centered at the origin. The graph of <span class="math inline">\(c=b^2\)</span> intersects the square at <span class="math inline">\(b=\pm \sqrt{n}\)</span>. Within the square, the shaded region below the parabola represents equations with real roots.</p>
+<p>To find the probability of real roots, <span class="math inline">\(P\)</span>, we can calculate the proportion of the shaded area with respect to the entire square. We will consider the limiting value of this proportion as <span class="math inline">\(n\)</span> tends towards <span class="math inline">\(\infty\)</span>:</p>
+<p><span class="math display">\[\begin{split}
+P &amp;= \lim_{n \to \infty} \frac{4n^2 - \int_{-\sqrt{n}}^{\sqrt{n}}n-b^2db}{4n^2} \\
+&amp;= \lim_{n \to \infty} \frac{4n^2 - \frac{4}{3}n^{\frac{3}{2}}}{4n^2} \\
+&amp;= \lim_{n \to \infty} 1 - \frac{3}{\sqrt{n}} \\
+&amp;= 1
+\end{split}\]</span></p>
+<p>Thus, the probability of the equation having real roots is <span class="math inline">\(1\)</span>.</p>

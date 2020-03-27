@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\usepackage[symbol]{footmisc}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{secnumdepth}{0}
+
+\date{}
+\author{Kaan Aksoy | March 8, 2020}
+
+\begin{document}
+
+\maketitle
+\section{Gambler's Ruin}
+\subsection{Problem}
+
+Player $M$ has \$$1$, and Player $N$ has \$$2$. Each play gives 
+one of the players \$$1$ from the other. Player $M$ is enough 
+better than Player $N$ that he wins $\frac{2}{3}$ of the plays. 
+They play until one is bankrupt. What is the chance that 
+Player $M$ wins?							
+
+\subsection{Solution}
+
+Let $M$ and $N$ represent victories by Player $M$ and Player $N$, 
+respectively. Then, consider the various sequences that 
+result in Player $M$'s victory: 
+
+$$\text{Case 0: } M M $$
+$$\text{Case 1: } M N M M $$
+$$\text{Case 2: } M N M N M M $$
+$$ \text{\ldots} $$
+$$\text{Case \textit{n}: } (M N)^n M M $$
+
+From the above, we can draw the following 
+insights regarding sequences that result in Player $M$'s 
+victory:
+
+\vspace{0.3cm}
+
+\begin{itemize}
+    \item Player $N$ must not win the $1^{st}$ play
+    \item Player $M$ winning $2$ plays in a row results in a victory
+    \item Player $N$ must not win $2$ players in a row
+\end{itemize}
+
+\vspace{0.3cm}
+
+These insights lead to the following convergent geometric 
+series representing Player $M$'s probability of victory: 
+
+$$ P(M\; Victory) = \sum_{i=0}^{\infty} \left[ 
+\left( \frac{2}{3} \right) \left( \frac{1}{3}\right) \right] ^n\left(\frac{2}{3}\right)^2 = \frac{4}{7} $$
+
+\end{document}
+

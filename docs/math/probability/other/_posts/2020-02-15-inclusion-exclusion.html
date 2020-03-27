@@ -1,0 +1,51 @@
+<h1 id="principle-of-inclusion-and-exclusion">Principle of Inclusion and Exclusion</h1>
+<h2 id="overview">Overview</h2>
+<p>The Principle of Inclusion and Exclusion (<em>PIE</em>) is useful for counting the number of elements in the union of multiple sets. In particular, it is useful for the union of sets that are not mutually exclusive, where adding the number of elements in each set does not give the correct value.</p>
+<p>For example, consider the sets <span class="math inline">\(A = \{1,2,3\}\)</span> and <span class="math inline">\(B = \{3, 4, 5\}\)</span>. In this case, adding the number of elements in each set gives <span class="math inline">\(6\)</span>, when in reality <span class="math inline">\(\lvert A \cup B \rvert = 4\)</span>.</p>
+<p>Below, cases of <em>PIE</em> for <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span>, and <span class="math inline">\(n\)</span> sets will be described.</p>
+<h2 id="pie-for-2-sets"><em>PIE</em> for 2 sets</h2>
+<p>For the case with <span class="math inline">\(2\)</span> sets, <em>PIE</em> is often called the <em>Addition Rule</em>, and can be stated as:</p>
+<p><span class="math display">\[|A \cup B| = |A| + |B| - |A \cap B|\]</span></p>
+<p>The subtraction on the right side of the equation is necessary to prevent double-counting of <span class="math inline">\(A \cap B\)</span>, which can be seen visually in the diagram below:</p>
+<figure>
+<img src="VennDiagram2" style="width:5cm" alt="" /><figcaption>Two sets that are not mutually exclusive</figcaption>
+</figure>
+<h2 id="pie-for-3-sets"><em>PIE</em> for 3 Sets</h2>
+<p>For <span class="math inline">\(3\)</span> sets, <em>PIE</em> can be stated as:</p>
+<p><span class="math display">\[|P \cup M \cup F| = |P| + |M| + |F| - 
+|P \cap M| - |P \cap F| - |M \cap F| 
++ |P \cap M \cap F|\]</span></p>
+<p>In this equation, the first <span class="math inline">\(3\)</span> subtractions eliminate repeated countings of the intersection of every pair of sets. However, in the process, the intersection of all <span class="math inline">\(3\)</span> sets is wrongly ignored, which is why <span class="math inline">\(|P \cap M \cap F|\)</span> must be added.</p>
+<figure>
+<img src="VennDiagram3" style="width:5cm" alt="" /><figcaption>Three sets that are not mutually exclusive</figcaption>
+</figure>
+<h2 id="pie-for-n-sets"><em>PIE</em> for <em>n</em> Sets</h2>
+<p>Generalizing from <em>PIE</em> for <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span> sets, <em>PIE</em> for <span class="math inline">\(n\)</span> sets can be written as:</p>
+<p><span class="math display">\[\left\lvert \bigcup_{i=1}^{n} A_{n} \right\rvert ={} 
+\sum_{i=1}^{n} \lvert A_{i} \rvert
+\, - \sum_{1 \leq i \leq j \leq n} \lvert A_{i} \cap A_{j} \rvert 
+\, + \sum_{1 \leq i \leq j \leq k \leq n} \lvert A_{i} \cap A_{j} \cap A_{k} \rvert 
+\, - \ldots
+\, + (-1)^{n-1} \lvert A_{1} \cap A_{2} \cap \ldots \cap A_{n} \rvert\]</span></p>
+<h2 id="example-problem-1">Example Problem 1</h2>
+<p>How many permutations of <span class="math inline">\(26\)</span> letters (a-z) do not contain any of: fish, rat, bird?</p>
+<p>Let <span class="math inline">\(F\)</span>, <span class="math inline">\(R\)</span>, and <span class="math inline">\(B\)</span> be sets of permutations that contain fish, rat, and bird, respectively. We begin by computing the cardinality of these sets, as well as their intersections:</p>
+<p><span class="math display">\[\begin{split}
+|F| &amp;= (26 - 4 + 1)! = 23! \\
+|R| &amp;= (26 - 3 + 1)! = 24! \\
+|B| &amp;= (26 - 4 + 1)! = 23! \\
+|F \cap R| &amp;= (26 - 4 - 3 + 1 + 1) = 21! \\
+|F \cap B| &amp;= 0 \\
+|R \cap B| &amp;= 0 \\
+|F \cap R \cap B| &amp;= 0 \\
+\end{split}\]</span></p>
+<p>The last <span class="math inline">\(3\)</span> cardinalities are <span class="math inline">\(0\)</span> because the words contain the same letters and cannot appear in the same permutation. Then, we apply <em>PIE</em> to calculate the number of permutations containing fish, rat, or bird:</p>
+<p><span class="math display">\[\begin{split}
+|F \cup R \cup B| &amp;= |F| + |R| + |B| - 
+|F \cap R| - |F \cap B| - |R \cap B| 
++ |F \cap R \cap B| \\
+&amp;= 23! + 24! + 23! - 21!
+\end{split}\]</span></p>
+<p>Finally, we subtract this value from the total number of permutations, giving <span class="math inline">\(26! - \left[ (2)23! + 24! - 21! \right]\)</span> as the final answer.</p>
+<h2 id="example-problem-2">Example Problem 2</h2>
+<p>How many ways can you seat n couples at a very long dinner table with seats 1..2n such that no couple sits next to each other.</p>

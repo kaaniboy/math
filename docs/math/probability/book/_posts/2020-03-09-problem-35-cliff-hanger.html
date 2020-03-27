@@ -1,0 +1,20 @@
+<h1 id="the-cliff-hanger">The Cliff-Hanger</h1>
+<h2 id="problem">Problem</h2>
+<p>From where he stands, one step toward a cliff would send a drunken man over the edge. He takes random steps, either toward or away from the cliff. At any step, his probability of taking a step away is <span class="math inline">\(p=\frac{2}{3}\)</span>, and his probability of taking a step toward the cliff is <span class="math inline">\(1-p=\frac{1}{3}\)</span>. What is his chance of escaping the cliff?</p>
+<h2 id="solution">Solution</h2>
+<p>We begin by representing the cliff as a number line, where <span class="math inline">\(x=0\)</span> is the edge, <span class="math inline">\(x=1\)</span> is the man’s starting point, <span class="math inline">\(x=2\)</span> is <span class="math inline">\(2\)</span> steps from the edge, and so on:</p>
+<figure>
+<img src="Problem35_CliffHanger.png" style="width:4cm" alt="" /><figcaption>Number line representation of cliff</figcaption>
+</figure>
+<p>Let <span class="math inline">\(P_1\)</span> be the probability that the man eventually reaches <span class="math inline">\(x=0\)</span> (the edge) starting at <span class="math inline">\(x=1\)</span>. We can write <span class="math inline">\(P_1\)</span> as follows:</p>
+<p><span class="math display">\[P_1 = (1-p) + pP_2\]</span></p>
+<p>In the above, <span class="math inline">\((1-p)\)</span> represents the probability of immediately taking a step towards the edge. The latter part represents the probability of taking a step away and then eventually reaching <span class="math inline">\(x=0\)</span>. Here, as before, <span class="math inline">\(P_2\)</span> represents the probability that the man eventually reaches <span class="math inline">\(x=0\)</span> starting at <span class="math inline">\(x=2\)</span>.</p>
+<p>We can continue expanding this equation recursively. For example, <span class="math inline">\(P_2\)</span> can be written as <span class="math inline">\(P_2 = (1-p)P_1 + pP_3\)</span>. However, this does not lead us closer to the solution.</p>
+<p>An important insight to observe is that <span class="math inline">\(P_2 = P_1P_1 = P_1^2\)</span>. The first <span class="math inline">\(P_1\)</span> is equivalent to the probability of moving from <span class="math inline">\(x=2\)</span> to <span class="math inline">\(x=1\)</span>, and the second <span class="math inline">\(P_1\)</span> is used in the traditional sense, representing the probability of moving from <span class="math inline">\(x=1\)</span> to <span class="math inline">\(x=0\)</span>. We can plug this identity into the original equation and apply the quadratic formula to get the following:</p>
+<p><span class="math display">\[\begin{split}
+P_1 &amp;= (1-p) + pP_1^2 \\ 
+&amp;= \frac{1 \pm \sqrt{1 - 4p(1-p)}}{2p} \\
+&amp;= \frac{1 \pm (1-2p)}{2p} \\
+&amp;= 1, \frac{1-p}{p}
+\end{split}\]</span></p>
+<p>Applying the solution <span class="math inline">\(P_1 = \frac{1-p}{p}\)</span> to <span class="math inline">\(p=\frac{2}{3}\)</span> gives a probability of <span class="math inline">\(1-P_1 = \frac{1}{2}\)</span> of the man escaping the cliff.</p>

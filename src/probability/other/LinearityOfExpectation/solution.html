@@ -1,0 +1,17 @@
+<h1 id="linearity-of-expectation">Linearity of Expectation</h1>
+<h2 id="overview">Overview</h2>
+<p><em>Linearity of Expectation</em> states that the expected value of the sum of any random variables equals the sum of the expected values of those individual random variables. This property holds regardless of if the random variables are independent or not.</p>
+<p>At first glance, this property can be quite unintuitive, particularly for dependent random variables. For example, let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be the amounts of rainfall on the Saturday and Sunday of a given weekend, respectively. We know that these two random variables are dependent; for example, if it rained a lot on Saturday, it is likely to rain a lot on Sunday. Nevertheless, using <em>Linearity of Expectation</em>, we can show that the expected amount of rainfall for the weekend is simply the sum of the expected amounts of rainfall for Saturday and Sunday individually.</p>
+<p>Mathematically, given <span class="math inline">\(X = X_{1} + X_2 + \ldots + X_{n}\)</span>, this property can be stated as:</p>
+<p><span class="math display">\[E[X] = E[X_{1} + X_2 + \ldots + X_{n}] = 
+E[X_{1}] + E[X_2] + \ldots + E[X_{n}]\]</span></p>
+<h2 id="proof">Proof</h2>
+<p>We can prove this property for two random variables, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, as follows:</p>
+<p><span class="math display">\[\begin{split}
+E[X+Y] &amp;= \sum_{x}\sum_{y}(x+y)P(X=x \cap Y=y) \\
+&amp;= \sum_{x}\sum_{y}xP(X=x \cap Y=y) + \sum_{x}\sum_{y}yP(X=x \cap Y=y) \\
+&amp;= \sum_{x}x\sum_{y}P(X=x \cap Y=y) + \sum_{y}y\sum_{x}P(X=x \cap Y=y) \\
+&amp;= \sum_{x}xP(X=x) + \sum_{y}yP(Y=y) \\
+&amp;= E[X] + E[Y]
+\end{split}\]</span></p>
+<p>Using induction, this proof can be extended to <span class="math inline">\(n\)</span> random variables.</p>

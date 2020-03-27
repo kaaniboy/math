@@ -1,0 +1,10 @@
+<h1 id="hat-check">Hat Check</h1>
+<h2 id="problem">Problem</h2>
+<p>A hat-check girl receives <span class="math inline">\(n\)</span> hats from <span class="math inline">\(n\)</span> patrons, but forgets which hats belong to whom. So, she randomly disperses the hats back to the patrons.</p>
+<p>What is the probability <span class="math inline">\(p_n\)</span> that nobody has their hat returned to them?</p>
+<h2 id="solution">Solution</h2>
+<p>A <em>derangement</em> is a permutation of a set such that no element remains in its original position. The number of derangements for a set of size <span class="math inline">\(n\)</span> is denoted as <span class="math inline">\(!n\)</span>.</p>
+<p>For this problem, each derangement represents a dispersal of hats such that nobody receives their hat back. Thus, the proportion of derangements among all possible permutations of the <span class="math inline">\(n\)</span> hats is the probability that nobody has their hat returned to them:</p>
+<p><span class="math display">\[p_n = \frac{!n}{n!}\]</span></p>
+<p>For reasonably large <span class="math inline">\(n\)</span> (<span class="math inline">\(n \geq 8\)</span>), <span class="math inline">\(!n\)</span> is very closely approximated by <span class="math inline">\(!n = \frac{n!}{e}\)</span>. Applying this approximation gives the following:</p>
+<p><span class="math display">\[p_n = \frac{!n}{n!} = \frac{\frac{n!}{e}}{n!} = \frac{1}{e}\]</span></p>

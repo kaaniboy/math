@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\usepackage[symbol]{footmisc}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{secnumdepth}{0}
+
+\date{}
+\author{Kaan Aksoy | Feb 24, 2020}
+
+\begin{document}
+
+\maketitle
+\section{Proof of $\sqrt{2}$ Irrationality}
+Suppose to the contrary that $\sqrt{2}$ is rational. 
+Then, there must exist two coprime integers $p$ and $q$ 
+such that$\sqrt{2} = \frac{p}{q}$. We can rearrange 
+this equation as follows:
+
+$$\sqrt{2} = \frac{p}{q}$$
+$$2q^2 = p^2$$
+
+From the above it is clear that $p^2$ is even. It follows 
+that $p$ is also even, since the square of any odd number 
+is odd. Thus, we can substitute $p$ with $2k$, where $k$ 
+is any integer:
+
+$$2q^2 = p^2$$
+$$2q^2 = 4k^2$$
+$$q^2 = 2k^2$$
+
+By a similar argument, we can again see that both $q^2$
+and $q$ are even. The fact that both $p$ 
+and $q$ are even contradicts the initial statement that 
+the two are coprime. Thus, we have reached a contradiction, 
+and $\sqrt{2}$ must be irrational.
+
+\end{document}

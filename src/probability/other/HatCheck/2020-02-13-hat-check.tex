@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}%
+
+\setcounter{secnumdepth}{0}
+
+\date{}
+\author{Kaan Aksoy | Feb 13, 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Hat Check}
+\subsection{Problem}
+
+A hat-check girl receives $n$ hats from 
+$n$ patrons, but forgets which hats belong  
+to whom. So, she randomly disperses the hats 
+back to the patrons.
+
+What is the probability $p_n$ that nobody has their 
+hat returned to them?
+
+\subsection{Solution}
+
+A \textit{derangement} is a permutation of a set 
+such that no element remains in its original position.
+The number of derangements for a set of size $n$ is 
+denoted as $!n$. 
+
+For this problem, each derangement represents a dispersal 
+of hats such that nobody receives their hat back. Thus, 
+the proportion of derangements among all possible 
+permutations of the $n$ hats is the probability that 
+nobody has their hat returned to them:
+
+$$ p_n = \frac{!n}{n!} $$
+
+For reasonably large $n$ ($n \geq 8$), $!n$ is very closely 
+approximated by $!n = \frac{n!}{e}$. Applying this 
+approximation gives the following:
+
+$$ p_n = \frac{!n}{n!} = \frac{\frac{n!}{e}}{n!} = \frac{1}{e}$$
+
+
+\end{document}
