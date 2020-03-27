@@ -1,2 +1,2 @@
 # Math Studies
-I will post various interesting math topics I study here.
+This is a blog of interesting math concepts that I encounter, primarily related to probability and combinatorics. It can be accessed [here](https://kaaniboy.github.io/math).
