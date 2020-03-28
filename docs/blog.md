@@ -25,6 +25,7 @@ permalink: /blog/
             <a class="post-link" href="/math/{{ post.url }}">{{ post.title }}</a>
         </li>
     {% endfor %}
+</ul>
 
 #### __Numbers__
 
