@@ -1,0 +1,93 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\usepackage[symbol]{footmisc}
+
+\def\lf{\left\lfloor}
+\def\rf{\right\rfloor}
+
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{secnumdepth}{0}
+
+\date{}
+\title{}
+\author{Kaan Aksoy | Mar 28, 2020}
+
+\begin{document}
+\maketitle
+
+\section{Zeros at the End of a Factorial}
+
+\subsection{Problem}
+
+How many trailing zeros does $n!$ have?
+
+\subsection{Solution}
+
+Consider a fairly small factorial, like $10! = 3,628,800$, which 
+has $2$ trailing zeros. Is there an easy way to see why it has $2$ 
+trailing zeros without performing the multiplications directly? 
+
+$$10! = 10\times9\times8\times7\times6\times5\times4\times3\times2\times1$$
+
+Looking at the above, we can see why $10!$ has $2$ trailing zeros. 
+Obviously, the factor $10$ contributes $1$ of these. The other trailing zero 
+comes from the product of the factors $5$ and $2$, which also gives $10$.
+
+This idea of counting factors that are multiples of $5$ is a good 
+initial approach. Among these, multiples of $10$ immediately contribute 
+a trailing zero, while the remaining multiples of $5$ contribute a trailing 
+zero when multiplied by an even factor. Since half of the numbers in the 
+factorial's expansion are even, there is always an even number to pair 
+with a multiple of $5$.
+
+\vspace{0.5cm}
+
+Let's apply this approach to $15!$:
+$$
+15! = 15\times14\times13\times12\times11\times
+10\times9\times8\times7\times6\times5\times4\times3\times2\times1
+$$
+
+This factorial contains $3$ multiples of $5$ ($5$, $10$, and $15$), 
+which gives a total of $3$ trailing zeros. Performing the 
+multiplications gives $15! = 1,307,674,368,000$, which confirms 
+the solution.
+
+Now, let's try applying the approach to $25!$. We know the expansion 
+of $25!$ contains $5$ multiples of $5$, which are $5$, $10$, $15$, 
+$20$, and $25$. Thus, applying our method gives $5$ trailing zeros. 
+In reality, however, $25!$ has $6$ trailing zeros:
+$$25!= 15,511,210,043,330,985,984,000,000$$
+
+What gives? The issue is that one term in this factorial's expansion 
+is $25$ (or $5^2$), which contains two $5$s. Thus, it actually 
+contributes $2$ trailing zeros to the count instead of just $1$. This 
+shows us that we must account for powers of $5$ specially. For 
+example, $5^3=125$ and $5^4=625$ contribute $3$ and $4$ trailing zeros, 
+respectively.
+
+Fortunately, we can easily represent this process mathematically. If 
+we define $z_n$ as the number of trailing zeros for $n!$, we can write 
+the formula as follows:
+
+$$
+z_n = \lf\frac{n}{5}\rf + \lf\frac{n}{5^2}\rf + 
+\lf\frac{n}{5^3}\rf + \lf\frac{n}{5^4}\rf + \ldots
+$$
+
+The above formula only needs to be extended to the largest product 
+of $5$ that is less than or equal to $n$. For example, for $125!$ 
+we extend it to the $3$\textsuperscript{3rd} term, which gives:
+
+$$
+z_{125} = \lf\frac{125}{5}\rf + \lf\frac{125}{5^2}\rf + 
+\lf\frac{125}{5^3}\rf = 25 + 5 + 1 = 31
+$$
+
+
+
+\end{document}
