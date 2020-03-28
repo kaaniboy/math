@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\usepackage[symbol]{footmisc}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{secnumdepth}{0}
+
+\date{}
+\title{}
+\author{Kaan Aksoy | Mar 27, 2020}
+
+\begin{document}
+\maketitle
+
+\section{The Ballot Box}
+
+\subsection{Problem}
+In an election, $2$ candidates, Albert and Benjamin, have in a ballot 
+box $a$ and $b$ votes respectively, with $a > b$. For example, $a=3$ 
+and $b=2$. If ballots are randomly drawn and tallied, what is the 
+chance that at least once after the first tally the candidates have 
+the same number of tallies?
+
+\subsection{Solution}
+
+Every drawing of the $a+b$ votes will fall into one of three categories:
+
+\begin{enumerate}
+    \item The first tallied vote is for Benjamin; in this case, 
+        there is a tie at some point, since Albert ultimately wins
+    \item The first tallied vote is for Albert, and he stays ahead 
+        during the entire drawing
+    \item The first tallied vote is for Albert, but he does not stay 
+        strictly ahead during the entire drawing; there is a tie at 
+        some point
+\end{enumerate}
+
+\vspace{0.5cm}
+
+We will denote votes for Albert and Benjamin as \textit{A} and 
+\textit{B}, respectively. Then, an example of a drawing in the 
+$1$\textsuperscript{st} category with $a=3$ and $b=2$ is the following:
+
+$$BBAAA$$
+
+In the above example, the $4$\textsuperscript{th} vote tallied 
+is the first position  of a tie. As noted earlier, every drawing in the 
+$1$\textsuperscript{st} category will contain a tie at some point. 
+If we "invert" every vote at or before the position of the first tie 
+(\textit{A} becomes \textit{B}, and vice versa), this drawing becomes 
+the following:
+
+$$AABB|A$$
+
+We observe now that this "inverted" drawing falls into the 
+$3$\textsuperscript{nd} category. This is not an 
+anomaly: there is a bijection between the $1$\textsuperscript{st} category
+and $3$\textsuperscript{rd} category created by following this inversion 
+rule. It follows that the number of drawings in each of these $2$ 
+categories is the same, and that their probabilities are also 
+the same. This probability is the probability of the first vote 
+tallied being for Benjamin, which is $\frac{b}{a+b}$.
+
+Using this observation, we can calculate the probability of 
+a random drawing having a tie at some point. Every drawing in the 
+$1$\textsuperscript{st} category leads to a tie, since Albert 
+must ultimately win ($a > b$). By definition, the
+$3$\textsuperscript{rd} category also consists entirely of 
+drawings with ties. Thus, the overall probability of a tie is:
+
+$$P(Tie) = \frac{2b}{a+b}$$
+
+This approach of applying inversions to solve the problem is 
+called a \textit{Proof by Reflection}.
+
+\end{document}

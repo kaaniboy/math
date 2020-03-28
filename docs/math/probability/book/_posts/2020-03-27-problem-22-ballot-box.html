@@ -1,0 +1,18 @@
+<h1 id="the-ballot-box">The Ballot Box</h1>
+<h2 id="problem">Problem</h2>
+<p>In an election, <span class="math inline">\(2\)</span> candidates, Albert and Benjamin, have in a ballot box <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> votes respectively, with <span class="math inline">\(a &gt; b\)</span>. For example, <span class="math inline">\(a=3\)</span> and <span class="math inline">\(b=2\)</span>. If ballots are randomly drawn and tallied, what is the chance that at least once after the first tally the candidates have the same number of tallies?</p>
+<h2 id="solution">Solution</h2>
+<p>Every drawing of the <span class="math inline">\(a+b\)</span> votes will fall into one of three categories:</p>
+<ol>
+<li><p>The first tallied vote is for Benjamin; in this case, there is a tie at some point, since Albert ultimately wins</p></li>
+<li><p>The first tallied vote is for Albert, and he stays ahead during the entire drawing</p></li>
+<li><p>The first tallied vote is for Albert, but he does not stay strictly ahead during the entire drawing; there is a tie at some point</p></li>
+</ol>
+<p>We will denote votes for Albert and Benjamin as <em>A</em> and <em>B</em>, respectively. Then, an example of a drawing in the <span class="math inline">\(1\)</span><sup>st</sup> category with <span class="math inline">\(a=3\)</span> and <span class="math inline">\(b=2\)</span> is the following:</p>
+<p><span class="math display">\[BBAAA\]</span></p>
+<p>In the above example, the <span class="math inline">\(4\)</span><sup>th</sup> vote tallied is the first position of a tie. As noted earlier, every drawing in the <span class="math inline">\(1\)</span><sup>st</sup> category will contain a tie at some point. If we "invert" every vote at or before the position of the first tie (<em>A</em> becomes <em>B</em>, and vice versa), this drawing becomes the following:</p>
+<p><span class="math display">\[AABB|A\]</span></p>
+<p>We observe now that this "inverted" drawing falls into the <span class="math inline">\(3\)</span><sup>nd</sup> category. This is not an anomaly: there is a bijection between the <span class="math inline">\(1\)</span><sup>st</sup> category and <span class="math inline">\(3\)</span><sup>rd</sup> category created by following this inversion rule. It follows that the number of drawings in each of these <span class="math inline">\(2\)</span> categories is the same, and that their probabilities are also the same. This probability is the probability of the first vote tallied being for Benjamin, which is <span class="math inline">\(\frac{b}{a+b}\)</span>.</p>
+<p>Using this observation, we can calculate the probability of a random drawing having a tie at some point. Every drawing in the <span class="math inline">\(1\)</span><sup>st</sup> category leads to a tie, since Albert must ultimately win (<span class="math inline">\(a &gt; b\)</span>). By definition, the <span class="math inline">\(3\)</span><sup>rd</sup> category also consists entirely of drawings with ties. Thus, the overall probability of a tie is:</p>
+<p><span class="math display">\[P(Tie) = \frac{2b}{a+b}\]</span></p>
+<p>This approach of applying inversions to solve the problem is called a <em>Proof by Reflection</em>.</p>
