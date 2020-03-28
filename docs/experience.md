@@ -1,6 +1,7 @@
 ---
 layout: blog
 permalink: /experience/
+title: Experience
 ---
 
 ### Work Experience
