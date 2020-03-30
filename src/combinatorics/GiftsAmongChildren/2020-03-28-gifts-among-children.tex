@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\usepackage[symbol]{footmisc}
+
+\def\lf{\left\lfloor}
+\def\rf{\right\rfloor}
+
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{secnumdepth}{0}
+
+\date{}
+\title{}
+\author{Kaan Aksoy | Mar 28, 2020}
+
+\begin{document}
+\maketitle
+
+\section{Gifts Among Children}
+
+\subsection{Problem}
+
+There are $6$ identical gifts to be distributed among $8$ 
+children. Each child may get more than $1$ gift. How many 
+ways are there to distribute the $6$ gifts among the children?
+
+\subsection{Solution}
+
+One approach is to apply the \textit{Stars and Bars} method, 
+which involves counting the number of ways one can place "bars" 
+to divide stars (or in case, gifts) among children.
+
+In this case, there are $8-1=7$ bars, which will divide the stars 
+into $8$ buckets (one per child). Additionally, there are 
+$6+7=13$ slots where the bars and stars can be placed. Below is 
+an example configuration:
+
+$$|\;|\;|\;|\;|**|***|*$$
+
+In the above example, the $1$\textsuperscript{st} -- 5\textsuperscript{th} 
+children get no presents, the 6th gets $2$ presents, the 
+7\textsuperscript{th} gets $3$ presents, and the 8\textsuperscript{th} 
+gets $1$ present.
+
+In general, we can count the number of configurations of $n$ 
+indistinguishable objects divided between $k$ buckets as follows:
+
+$$Count = \binom{n+k-1}{k-1}$$
+
+For this particular problem, this method gives the following solution:
+
+$$Count = \binom{6+8-1}{8-1} = \binom{13}{7} = 1716$$
+\end{document}

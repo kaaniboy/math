@@ -1,0 +1,12 @@
+<h1 id="gifts-among-children">Gifts Among Children</h1>
+<h2 id="problem">Problem</h2>
+<p>There are <span class="math inline">\(6\)</span> identical gifts to be distributed among <span class="math inline">\(8\)</span> children. Each child may get more than <span class="math inline">\(1\)</span> gift. How many ways are there to distribute the <span class="math inline">\(6\)</span> gifts among the children?</p>
+<h2 id="solution">Solution</h2>
+<p>One approach is to apply the <em>Stars and Bars</em> method, which involves counting the number of ways one can place "bars" to divide stars (or in case, gifts) among children.</p>
+<p>In this case, there are <span class="math inline">\(8-1=7\)</span> bars, which will divide the stars into <span class="math inline">\(8\)</span> buckets (one per child). Additionally, there are <span class="math inline">\(6+7=13\)</span> slots where the bars and stars can be placed. Below is an example configuration:</p>
+<p><span class="math display">\[|\;|\;|\;|\;|**|***|*\]</span></p>
+<p>In the above example, the <span class="math inline">\(1\)</span><sup>st</sup> – 5<sup>th</sup> children get no presents, the 6th gets <span class="math inline">\(2\)</span> presents, the 7<sup>th</sup> gets <span class="math inline">\(3\)</span> presents, and the 8<sup>th</sup> gets <span class="math inline">\(1\)</span> present.</p>
+<p>In general, we can count the number of configurations of <span class="math inline">\(n\)</span> indistinguishable objects divided between <span class="math inline">\(k\)</span> buckets as follows:</p>
+<p><span class="math display">\[Count = \binom{n+k-1}{k-1}\]</span></p>
+<p>For this particular problem, this method gives the following solution:</p>
+<p><span class="math display">\[Count = \binom{6+8-1}{8-1} = \binom{13}{7} = 1716\]</span></p>
