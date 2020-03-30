@@ -1,0 +1,33 @@
+<h1 id="generalized-binomial-theorem">Generalized Binomial Theorem</h1>
+<p>The <em>binomial theorem</em> describes the expansion of powers of binomials, and can be stated as follows:</p>
+<p><span class="math display">\[(x+y)^n = \sum_{k=0}^n \binom{n}{k}x^k y^{n-k}\]</span></p>
+<p>In the above, <span class="math inline">\(\binom{n}{k}\)</span> represents the number of ways to select <span class="math inline">\(k\)</span> objects out of a set of <span class="math inline">\(n\)</span> objects where order does not matter. In the context of this theorem, these values are also called <em>binomial coefficients</em>, and are defined as follows:</p>
+<p><span class="math display">\[\binom{n}{k} = \frac{n!}{(n-k)!k!}\]</span></p>
+<p>As example, we can apply this theorem to the expansion of <span class="math inline">\((x+y)^4\)</span>, which gives the following:</p>
+<p><span class="math display">\[\begin{split}
+(x+y)^4 &amp;= \binom{4}{0}x^0y^4 + \binom{4}{1}x^1y^3 + 
+\binom{4}{2}x^2y^2 + \binom{4}{3}x^3y^1 + \binom{4}{4}x^4y^0 \\
+&amp;= y^4 + 4xy^3 + 6x^2y^2 + 4x^3y + x^4
+\end{split}\]</span></p>
+<p>However, as it stands, this theorem is not directly applicable to binomial expansions where the power is negative or not an integer, such as <span class="math inline">\((x+y)^{-1}\)</span> or <span class="math inline">\((x+y)^{\frac{1}{2}}\)</span>. This is because the factorial function (<span class="math inline">\(n!\)</span>) used in the binomial coefficient has a domain restricted to non-negative integers.</p>
+<p>Fortunately, it is easy to replace the factorial with an equivalent representation to expand the domain:</p>
+<p><span class="math display">\[\begin{split}
+\binom{n}{k} &amp;= \frac{n!}{(n-k)!k!} \\
+&amp;= \frac{n(n-1)(n-2)\cdots(n-k+1)(n-k)!}{(n-k)!k!} \\ 
+&amp;= \frac{n(n-1)(n-2)\cdots(n-k+1)}{k!}
+\end{split}\]</span></p>
+<p>We can further simplify this formulation for negative exponents, as in <span class="math inline">\((x+y)^{-n}\)</span>, as follows:</p>
+<p><span class="math display">\[\begin{split}
+\binom{-n}{k} &amp;= \frac{(-n)(-n-1)(-n-2)\cdots(-n-k+1)}{k!} \\
+&amp;= (-1)^k\frac{(n)(n+1)(n+2)\cdots(n+k-1)}{k!} \\ 
+&amp;= (-1)^k\frac{(n+k-1)!}{k!(n-1)!} \\
+&amp;= (-1)^k\binom{n+k-1}{k}
+\end{split}\]</span></p>
+<p>Using these generalized forms, we can describe the expansion of powers of binomials whose exponents are any real number, or even complex numbers. For example, we can apply them to find the coefficient of <span class="math inline">\(x^{2005}\)</span> in the expansion of <span class="math inline">\(( 5x+1)^{-2}\)</span>:</p>
+<p><span class="math display">\[\begin{split}
+\left[x^{2005}\right](5x+1)^{-2} &amp;= \binom{-2}{2005}5^{2005} \\
+&amp;= (-1)^{2005}\binom{2006}{2005}5^{2005} \\
+&amp;= -2006 \times 5^{2005}
+\end{split}\]</span></p>
+<p>In the above, <span class="math inline">\(\left[\;\cdots\;\right]\)</span> is an operator querying the coefficient of its parameter. In this case, the operator is being applied to find the coefficient of <span class="math inline">\(x^{2005}\)</span>.</p>
+<p>Aside from the above use case, the generalized binomial theorem is also very useful for <em>generating functions</em>, which are heavily applied in combinatorics.</p>
