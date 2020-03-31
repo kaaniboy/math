@@ -227,3 +227,7 @@ margin: unset;
 ul {
     list-style-type: none;
 }
+
+.header-padding {
+    padding-left: 10px;
+}
