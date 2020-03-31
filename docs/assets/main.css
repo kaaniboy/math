@@ -231,3 +231,10 @@ ul {
 .header-padding {
     padding-left: 10px;
 }
+
+.profile {
+    margin:0 6px 0 0;
+    border: none;
+    width: 128px;
+    height: 128px;
+}
