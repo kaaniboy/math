@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="{{ '/assets/comments.css' | relative_url }}">
+<script src="  https://unpkg.com/showdown/dist/showdown.min.js"></script>
+<script src="{{ '/assets/comments.js' | relative_url }}"></script>
+
+<script>
+    const title = '{{ page.title }}';
+    setupComments('kaaniboy', 'math', title);
+</script>
+<div id="comments_container">
+    <h3>Comments</h3>
+    <div id="comments_list"></div>
+</div>
