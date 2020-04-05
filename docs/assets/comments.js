@@ -1,4 +1,4 @@
-const GITHUB_TOKEN = '31dd5df0595f35ce24ca03634929e5dbb0107899';
+const GITHUB_TOKEN = 'INSERT_TOKEN_HERE';
 
 async function setupComments(ghUsername, ghRepo, postTitle) {
     const commentsUrl = await getCommentsURL(ghUsername, ghRepo, postTitle);
