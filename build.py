@@ -36,7 +36,7 @@ def fix_img_src():
     html_files = glob.glob('docs/math/**/*.html', recursive=True)
     for filepath in html_files:
         with open(filepath, 'r+') as f:
-            content = f.read().replace('img src="', 'img src="/math/assets/img/')
+            content = f.read().replace('img src="', 'img src="/assets/img/')
             f.seek(0)
             f.write(content)
             f.truncate()
