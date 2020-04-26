@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}%
+
+\setcounter{secnumdepth}{0}
+
+\date{}
+\author{Kaan Aksoy | April 26, 2020}
+\title{}
+
+\begin{document}
+
+\maketitle
+
+\section{Bayes' Theorem}
+
+Bayes' theorem is central to probability. It serves as the 
+foundation for \textit{statistical inference}, which is used to estimate 
+population parameters based on observations. For example, Bayes' 
+theorem may be applied to find the probability that a coin is fair, 
+given that all prior flips have landed on heads.
+
+Mathematically, Bayes' theorem may be stated as follows for 
+events $A$ and $B$:
+
+$$
+P(A|B) = \frac{P(B|A)P(A)}{P(B)}
+$$
+
+In the above, $P(A)$ is called the \textit{prior}, and represents  
+the probability of $A$ before evidence is incorporated. Likewise, 
+$P(A|B)$ is called the \textit{posterior}, and represents the 
+probability of $A$ after evidence is incorporated. 
+
+\subsection{Proof}
+It is easy to arrive at this theorem from the following 
+two formulations of the definition of conditional probability:
+
+$$P(A|B) = \frac{P(A \cap B)}{P(B)}$$
+$$P(A \cap B) = P(A)P(B|A)$$
+$$\Downarrow$$
+$$P(A|B) = \frac{P(B|A)P(A)}{P(B)}$$
+
+\end{document}
