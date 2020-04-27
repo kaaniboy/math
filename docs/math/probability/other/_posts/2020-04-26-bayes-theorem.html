@@ -1,8 +1,15 @@
-<h1 id="bayes-theorem">Bayes’ Theorem</h1>
-<p>Bayes’ theorem is central to probability. It serves as the foundation for <em>statistical inference</em>, which is used to estimate population parameters based on observations. For example, Bayes’ theorem may be applied to find the probability that a coin is fair, given that all prior flips have landed on heads.</p>
-<p>Mathematically, Bayes’ theorem may be stated as follows for events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>:</p>
-<p><span class="math display">\[P(A|B) = \frac{P(B|A)P(A)}{P(B)}\]</span></p>
-<p>In the above, <span class="math inline">\(P(A)\)</span> is called the <em>prior</em>, and represents the probability of <span class="math inline">\(A\)</span> before evidence is incorporated. Likewise, <span class="math inline">\(P(A|B)\)</span> is called the <em>posterior</em>, and represents the probability of <span class="math inline">\(A\)</span> after evidence is incorporated.</p>
-<h2 id="proof">Proof</h2>
-<p>It is easy to arrive at this theorem from the following two formulations of the definition of conditional probability:</p>
-<p><span class="math display">\[P(A|B) = \frac{P(A \cap B)}{P(B)}\]</span> <span class="math display">\[P(A \cap B) = P(A)P(B|A)\]</span> <span class="math display">\[\Downarrow\]</span> <span class="math display">\[P(A|B) = \frac{P(B|A)P(A)}{P(B)}\]</span></p>
+<h1 id="faulty-coin">Faulty Coin</h1>
+<h2 id="problem">Problem</h2>
+<p>You have <span class="math inline">\(1000\)</span> coins, one of which is faulty: it has a head on both sides. You randomly draw a coin, and, without examining it, toss it <span class="math inline">\(10\)</span> times. As it happens, you get <span class="math inline">\(10\)</span> heads in a row. What’s the probability that it’s the faulty one?</p>
+<h2 id="solution">Solution</h2>
+<p>Bayes theorem is useful for solving this problem. Let <span class="math inline">\(P(F)\)</span> represent the prior probability that the drawn coin is faulty. Let <span class="math inline">\(P(H)\)</span> represent the prior probability of the coin landing on heads <span class="math inline">\(10\)</span> times in a row.</p>
+<p>We can calculate <span class="math inline">\(P(H)\)</span> by considering the two possible cases for the drawn coin—it is either faulty or not:</p>
+<p><span class="math display">\[P(H) = \frac{1}{1000}(1)+\frac{999}{1000}
+\left( \frac{1}{2^{10}} \right) = \frac{2023}{1024000}\]</span></p>
+<p>We trivially know that <span class="math inline">\(P(F) = \frac{1}{1000}\)</span>, since only one coin is faulty. Additionally, we know <span class="math inline">\(P(H|F) = 1\)</span>, since the faulty coin always lands on heads.</p>
+<p>Inserting these values into Bayes’ theorem gives the following solution:</p>
+<p><span class="math display">\[\begin{split}
+P(F|H) &amp;= \frac{P(F)P(H|F)}{P(H)} \\
+&amp;= \left( \frac{1}{1000}\right) \left(\frac{1024000}{2023} \right) \\
+&amp;\approx 0.506
+\end{split}\]</span></p>

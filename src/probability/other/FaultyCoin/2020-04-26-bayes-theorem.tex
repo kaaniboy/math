@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}%
+
+\setcounter{secnumdepth}{0}
+
+\date{}
+\author{Kaan Aksoy | April 26, 2020}
+\title{}
+
+\begin{document}
+
+\maketitle
+
+\section{Faulty Coin}
+\subsection{Problem}
+
+You have $1000$ coins, one of which is faulty: it has a head on both sides.
+You randomly draw a coin, and, without examining it, toss it $10$ times. As
+it happens, you get $10$ heads in a row. What’s the probability that it’s the
+faulty one?
+
+\subsection{Solution}
+
+Bayes theorem is useful for solving this problem. Let $P(F)$ represent 
+the prior probability that the drawn coin is faulty. Let $P(H)$ represent 
+the prior probability of the coin landing on heads $10$ times in a row. 
+
+We can calculate $P(H)$ by considering the two possible cases for the 
+drawn coin---it is either faulty or not:
+
+$$P(H) = \frac{1}{1000}(1)+\frac{999}{1000}
+\left( \frac{1}{2^{10}} \right) = \frac{2023}{1024000}$$
+
+We trivially know that $P(F) = \frac{1}{1000}$, since only 
+one coin is faulty. Additionally, we know $P(H|F) = 1$, since the 
+faulty coin always lands on heads.
+
+Inserting these values into Bayes' theorem gives the following solution:
+
+\begin{equation*}
+\begin{split}
+P(F|H) &= \frac{P(F)P(H|F)}{P(H)} \\
+&= \left( \frac{1}{1000}\right) \left(\frac{1024000}{2023} \right) \\
+&\approx 0.506
+\end{split}
+\end{equation*}
+
+\end{document}
