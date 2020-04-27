@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+
+\setcounter{secnumdepth}{0}
+
+\date{}
+\author{Kaan Aksoy | Feb 20, 2020}
+\title{}
+
+\begin{document}
+
+\maketitle
+\section{Minimizing Expected Value}
+\subsection{Problem}
+
+Suppose $X$ is a random variable with $E[X^2] < \infty$. What is 
+the constant $c$ that minimizes $E[(X - c)^2]$?
+
+\subsection{Solution}
+
+As with most optimization problems, we will begin by taking the 
+derivative of $E[(X - c)^2]$ with respect to $c$. To do so, we replace 
+the expectation with its definition, letting $f(x)$ represent the 
+probability density function of $X$.
+
+\begin{equation*}
+\begin{split}
+\dfrac{d}{dc}E\left[(X - c)^2\right] &= 
+\dfrac{d}{dc} \int_{-\infty}^{\infty} (x-c)^2f(x)dx \\
+&= -2\int_{-\infty}^{\infty}(x-c)f(x)dx \\
+&= -2\left[ \int_{-\infty}^{\infty}xf(x)dx - 
+\int_{-\infty}^{\infty}cf(x)dx \right] \\
+&= -2\left( E[X] - c \right) \\
+\end{split}
+\end{equation*}
+
+Next, we set the derivative equal to $0$ and solve for $c$:
+
+$$ -2\left( E[X] - c \right) = 0$$
+$$ c = E[X]$$
+
+Thus, $E[(X - c)^2]$ is minimized by $c = E[X]$. We confirm this by noting 
+$\dfrac{d^2}{dc}E[(X - c)^2] = 2$, indicating upward concavity.
+
+\subsection{Alternative Approach}
+There is another, cleaner approach to finding the solution. We begin 
+by utilizing the linearity of expectation property:
+
+$$E[(X - c)^2] = E[X^2 - 2cX + c^2] = E[X^2] - 2cE[X] +c^2$$
+
+Then, we take the derivative of this new formulation and set the result to $0$:
+
+$$\dfrac{d}{dc} \left[ E[X^2] - 2cE[X] +c^2 \right] = 0$$
+$$-2E[X] + 2c = 0$$
+$$c = E[X]$$
+
+\end{document}

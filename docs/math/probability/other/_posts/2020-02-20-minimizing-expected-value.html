@@ -1,0 +1,21 @@
+<h1 id="minimizing-expected-value">Minimizing Expected Value</h1>
+<h2 id="problem">Problem</h2>
+<p>Suppose <span class="math inline">\(X\)</span> is a random variable with <span class="math inline">\(E[X^2] &lt; \infty\)</span>. What is the constant <span class="math inline">\(c\)</span> that minimizes <span class="math inline">\(E[(X - c)^2]\)</span>?</p>
+<h2 id="solution">Solution</h2>
+<p>As with most optimization problems, we will begin by taking the derivative of <span class="math inline">\(E[(X - c)^2]\)</span> with respect to <span class="math inline">\(c\)</span>. To do so, we replace the expectation with its definition, letting <span class="math inline">\(f(x)\)</span> represent the probability density function of <span class="math inline">\(X\)</span>.</p>
+<p><span class="math display">\[\begin{split}
+\dfrac{d}{dc}E\left[(X - c)^2\right] &amp;= 
+\dfrac{d}{dc} \int_{-\infty}^{\infty} (x-c)^2f(x)dx \\
+&amp;= -2\int_{-\infty}^{\infty}(x-c)f(x)dx \\
+&amp;= -2\left[ \int_{-\infty}^{\infty}xf(x)dx - 
+\int_{-\infty}^{\infty}cf(x)dx \right] \\
+&amp;= -2\left( E[X] - c \right) \\
+\end{split}\]</span></p>
+<p>Next, we set the derivative equal to <span class="math inline">\(0\)</span> and solve for <span class="math inline">\(c\)</span>:</p>
+<p><span class="math display">\[-2\left( E[X] - c \right) = 0\]</span> <span class="math display">\[c = E[X]\]</span></p>
+<p>Thus, <span class="math inline">\(E[(X - c)^2]\)</span> is minimized by <span class="math inline">\(c = E[X]\)</span>. We confirm this by noting <span class="math inline">\(\dfrac{d^2}{dc}E[(X - c)^2] = 2\)</span>, indicating upward concavity.</p>
+<h2 id="alternative-approach">Alternative Approach</h2>
+<p>There is another, cleaner approach to finding the solution. We begin by utilizing the linearity of expectation property:</p>
+<p><span class="math display">\[E[(X - c)^2] = E[X^2 - 2cX + c^2] = E[X^2] - 2cE[X] +c^2\]</span></p>
+<p>Then, we take the derivative of this new formulation and set the result to <span class="math inline">\(0\)</span>:</p>
+<p><span class="math display">\[\dfrac{d}{dc} \left[ E[X^2] - 2cE[X] +c^2 \right] = 0\]</span> <span class="math display">\[-2E[X] + 2c = 0\]</span> <span class="math display">\[c = E[X]\]</span></p>
