@@ -1,0 +1,15 @@
+<h1 id="faulty-coin">Faulty Coin</h1>
+<h2 id="problem">Problem</h2>
+<p>You have <span class="math inline">\(1000\)</span> coins, one of which is faulty: it has a head on both sides. You randomly draw a coin, and, without examining it, toss it <span class="math inline">\(10\)</span> times. As it happens, you get <span class="math inline">\(10\)</span> heads in a row. What’s the probability that it’s the faulty one?</p>
+<h2 id="solution">Solution</h2>
+<p>Bayes theorem is useful for solving this problem. Let <span class="math inline">\(P(F)\)</span> represent the prior probability that the drawn coin is faulty. Let <span class="math inline">\(P(H)\)</span> represent the prior probability of the coin landing on heads <span class="math inline">\(10\)</span> times in a row.</p>
+<p>We can calculate <span class="math inline">\(P(H)\)</span> by considering the two possible cases for the drawn coin—it is either faulty or not:</p>
+<p><span class="math display">\[P(H) = \frac{1}{1000}(1)+\frac{999}{1000}
+\left( \frac{1}{2^{10}} \right) = \frac{2023}{1024000}\]</span></p>
+<p>We trivially know that <span class="math inline">\(P(F) = \frac{1}{1000}\)</span>, since only one coin is faulty. Additionally, we know <span class="math inline">\(P(H|F) = 1\)</span>, since the faulty coin always lands on heads.</p>
+<p>Inserting these values into Bayes’ theorem gives the following solution:</p>
+<p><span class="math display">\[\begin{split}
+P(F|H) &amp;= \frac{P(F)P(H|F)}{P(H)} \\
+&amp;= \left( \frac{1}{1000}\right) \left(\frac{1024000}{2023} \right) \\
+&amp;\approx 0.506
+\end{split}\]</span></p>
