@@ -1,0 +1,8 @@
+<h1 id="bayes-theorem">Bayes’ Theorem</h1>
+<p>Bayes’ theorem is central to probability. It serves as the foundation for <em>statistical inference</em>, which is used to estimate population parameters based on observations. For example, Bayes’ theorem may be applied to find the probability that a coin is fair, given that all prior flips have landed on heads.</p>
+<p>Mathematically, Bayes’ theorem may be stated as follows for events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>:</p>
+<p><span class="math display">\[P(A|B) = \frac{P(B|A)P(A)}{P(B)}\]</span></p>
+<p>In the above, <span class="math inline">\(P(A)\)</span> is called the <em>prior</em>, and represents the probability of <span class="math inline">\(A\)</span> before evidence is incorporated. Likewise, <span class="math inline">\(P(A|B)\)</span> is called the <em>posterior</em>, and represents the probability of <span class="math inline">\(A\)</span> after evidence is incorporated.</p>
+<h2 id="proof">Proof</h2>
+<p>It is easy to arrive at this theorem from the following two formulations of the definition of conditional probability:</p>
+<p><span class="math display">\[P(A|B) = \frac{P(A \cap B)}{P(B)}\]</span> <span class="math display">\[P(A \cap B) = P(A)P(B|A)\]</span> <span class="math display">\[\Downarrow\]</span> <span class="math display">\[P(A|B) = \frac{P(B|A)P(A)}{P(B)}\]</span></p>

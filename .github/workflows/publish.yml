@@ -10,7 +10,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Publish
+      - name: Publish Posts
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
@@ -19,4 +19,14 @@ jobs:
           TARGET_FOLDER: math
           FOLDER: docs/math
           COMMIT_MESSAGE: Publish math to blog - ${{ github.event.head_commit.message }}
+
+      - name: Publish Images
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          REPOSITORY_NAME: kaaniboy/kaaniboy.github.io
+          BRANCH: master
+          TARGET_FOLDER: assets/img
+          FOLDER: docs/assets/img
+          COMMIT_MESSAGE: Publish images to blog - ${{ github.event.head_commit.message }} 
           
