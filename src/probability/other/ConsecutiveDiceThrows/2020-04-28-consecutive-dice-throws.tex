@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+
+\setcounter{secnumdepth}{0}
+
+\date{}
+\author{Kaan Aksoy | April 28, 2020}
+\title{}
+
+\begin{document}
+
+\maketitle
+\section{Consecutive Dice Throws}
+\subsection{Problem}
+
+What is the expected number of times one must roll a fair dice before 
+getting $2$ consecutive $6$'s?
+
+\subsection{Solution}
+According to the geometric distribution, we can expect $6$ rolls before 
+landing the first $6$. At that point, there is a $\frac{1}{6}$ chance 
+that the next roll is a $6$, which would result in two consecutive $6$'s. 
+On the other hand, there is a $\frac{5}{6}$ chance of landing a number that is 
+not $6$, at which point we must reset our count. This formulation can be 
+represented by the following recurrence, where $X$ is a random variable 
+representing the number of rolls for $2$ consecutive $6$'s:
+
+$$E[X] = 6 + \frac{1}{6}(1) + \frac{5}{6}(1+E[X])$$
+$$E[X] = 42$$
+
+Thus, the expected number of rolls to land $2$ consecutive $6$'s is $42$.
+\end{document}

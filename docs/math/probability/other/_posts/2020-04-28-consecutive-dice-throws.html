@@ -1,0 +1,7 @@
+<h1 id="consecutive-dice-throws">Consecutive Dice Throws</h1>
+<h2 id="problem">Problem</h2>
+<p>What is the expected number of times one must roll a fair dice before getting <span class="math inline">\(2\)</span> consecutive <span class="math inline">\(6\)</span>’s?</p>
+<h2 id="solution">Solution</h2>
+<p>According to the geometric distribution, we can expect <span class="math inline">\(6\)</span> rolls before landing the first <span class="math inline">\(6\)</span>. At that point, there is a <span class="math inline">\(\frac{1}{6}\)</span> chance that the next roll is a <span class="math inline">\(6\)</span>, which would result in two consecutive <span class="math inline">\(6\)</span>’s. On the other hand, there is a <span class="math inline">\(\frac{5}{6}\)</span> chance of landing a number that is not <span class="math inline">\(6\)</span>, at which point we must reset our count. This formulation can be represented by the following recurrence, where <span class="math inline">\(X\)</span> is a random variable representing the number of rolls for <span class="math inline">\(2\)</span> consecutive <span class="math inline">\(6\)</span>’s:</p>
+<p><span class="math display">\[E[X] = 6 + \frac{1}{6}(1) + \frac{5}{6}(1+E[X])\]</span> <span class="math display">\[E[X] = 42\]</span></p>
+<p>Thus, the expected number of rolls to land <span class="math inline">\(2\)</span> consecutive <span class="math inline">\(6\)</span>’s is <span class="math inline">\(42\)</span>.</p>
