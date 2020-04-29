@@ -32,4 +32,12 @@ $$E[X] = 6 + \frac{1}{6}(1) + \frac{5}{6}(1+E[X])$$
 $$E[X] = 42$$
 
 Thus, the expected number of rolls to land $2$ consecutive $6$'s is $42$.
+
+This approach can be generalized to an arbitrary number of consecutive $6$'s. 
+For example, suppose $Y$ represents the number of rolls for $3$ consecutive $6$'s. 
+Knowing that $E[X] = 42$, we can write a recurrence for $E[Y]$ as follows:
+
+$$E[Y] = E[X] + \frac{1}{6}(1) + \frac{5}{6}(1+E[Y])$$
+$$E[Y] = 258$$
+
 \end{document}
